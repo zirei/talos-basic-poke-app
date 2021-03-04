@@ -1,0 +1,26 @@
+:root {
+    --aquamarine: rgb(86, 198, 176,1);
+    --blackLight: rgba(0,0,0,17);
+    --white: rgba(255,255,255,1);
+  }
+  
+  .images {
+    max-width: 300px;
+    margin: 1rem auto;
+  }
+  
+  
+  .card {
+    --blue:  rgba(86, 198, 176,0.85); 
+    --orange: rgba(246, 162, 7, 0.8);
+    padding: 1rem;
+    border: 1px solid var(--blue);
+    background-color: var(--orange);
+    margin: 1rem;
+    border-radius: 0.2rem;
+    box-shadow: 0px 2px 4px 1px var(--blackLight);
+  }
+  
+  .image {
+    width: 100%;
+  }

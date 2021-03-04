@@ -1,17 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+ReactDOM.render(<App/> , document.getElementById('root'));
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// //Creando arquitectura de los modales
+// const TarjetasDePokemon = (props) => (
+//   <div>
+//     <span>{props.name}, boton de comparacion, boton de cierre</span>
+//     <hr/>
+//     <div>
+//       <span>img usign id{props.id}</span>
+//       <p> Descripcion </p>
+//       <hr/>
+//       <p> atributos</p>
+//     </div>
+//     <hr/>
+//     <span>Barras ( HP, ATTACK, DEFENSA, SPECIAL-ATTACK, SPECIAL DEFEND, SPEED)</span>
+//   </div>
+// )
+
+// //Modal 1
+// const App = (props) => (
+//   <div>
+//     <TarjetasDePokemon name='pokemon 1' id={1} />
+//     <TarjetasDePokemon name='pokemon 2' id={2} />
+//     <TarjetasDePokemon />
+//   </div>
+// )
+
+// ReactDOM.render(<App/>,
+//   document.getElementById('root')
+// );
