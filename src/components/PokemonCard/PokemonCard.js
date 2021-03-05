@@ -3,18 +3,19 @@ import { connect } from 'react-redux'
 import { Card, Container, Row, Col } from 'react-bootstrap';
 import { pokemonDataApi, pokemonImageApi } from '../../utils'
 import pokemonCardStyle from './PokemonCard.module.css'
+// import { selectedPokemon, unselectedPokemons } from '../../redux/actions/pokemonsActions';
+
 
 const PokemonCard = ({
   name,
   url
 }) => {
   const imageUrl = `${pokemonImageApi}${url.split('/')[6]}.png`
-
   return (
     <div>
       <Container>
         <Row>
-          <Col xs={8} md={9}>
+          <Col xs={6} sm={3} md={3} lg={2}>
             <Card className={pokemonCardStyle.card}>
               <Card.Img className={pokemonCardStyle.image} variant="top" src={imageUrl} fluid={'true'} />
               <Card.Footer className={pokemonCardStyle.textFooter}>
@@ -33,7 +34,9 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {}
+  return {
+
+  }
 }
 
 export default connect(
