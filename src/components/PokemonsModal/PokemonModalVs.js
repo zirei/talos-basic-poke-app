@@ -7,7 +7,6 @@ import { SyncLoader } from 'react-spinners'
 
 function PokemonsModalVS({ showSelected, selectedPokemons, unselectedPokemons, keepSelectedPokemons }) {
 
-  console.log('desde le modal', selectedPokemons[0])
   return (
     <>
       <Modal show={showSelected} onHide={unselectedPokemons}>
