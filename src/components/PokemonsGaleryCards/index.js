@@ -2,4 +2,4 @@
 // export default GaleryComponent
 
 // en una sola linea
-export {default} from './GaleryComponent'
+export {default} from './PokemonsGaleryCards'
