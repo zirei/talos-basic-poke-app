@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Card } from 'react-bootstrap';
+import { Card, Container, Row, Col } from 'react-bootstrap';
 import { pokemonDataApi, pokemonImageApi } from '../../utils'
 import pokemonCardStyle from './PokemonCard.module.css'
 
@@ -11,12 +11,20 @@ const PokemonCard = ({
   const imageUrl = `${pokemonImageApi}${url.split('/')[6]}.png`
 
   return (
-    <Card className={pokemonCardStyle.image}>
-      <Card.Img variant="top" src={imageUrl} fluid={'true'}/>
-      <Card.Footer className={pokemonCardStyle.textFooter}>
-        <small className="text-muted">{name}</small>
-      </Card.Footer>
-    </Card>
+    <div>
+      <Container>
+        <Row>
+          <Col xs={8} md={9}>
+            <Card className={pokemonCardStyle.card}>
+              <Card.Img className={pokemonCardStyle.image} variant="top" src={imageUrl} fluid={'true'} />
+              <Card.Footer className={pokemonCardStyle.textFooter}>
+                <small className="text-muted">{name}</small>
+              </Card.Footer>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   )
 }
 

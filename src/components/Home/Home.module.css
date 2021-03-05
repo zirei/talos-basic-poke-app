@@ -1,0 +1,12 @@
+.text {
+   text-align: center; 
+   vertical-align: middle;
+   padding: 2rem 10rem;
+}
+
+.button {
+    --red: rgb(248, 1, 1);
+    --white: rgba(255, 255, 255, 1);
+    background-color: var(--red) ;
+    color: var(--white);
+}

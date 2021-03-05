@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 import galeryStyles from './GaleryComponent.module.css'
-import { Card, CardDeck } from 'react-bootstrap';
+import { CardDeck, Row, Col, Container } from 'react-bootstrap';
 import PokemonCard from '../PokemonCard'
 import { fetchPokemons } from '../../redux/actions/pokemonsActions'
 import { getId } from '../../utils'
