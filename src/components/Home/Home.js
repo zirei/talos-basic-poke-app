@@ -6,11 +6,11 @@ import textStyles from './Home.module.css'
 const Home = () => {
   return (
     <div className={textStyles.text}>
-      <h1> BIENVENIDOS A LA AVENTURA POKEMON </h1>
+      <h1> WELCOME TO THE POKEMON ADVENTURE </h1>
       <p>
-        Erase una vez un joven llamado ash, el decidio emprender una aventura en un maravilloso mundo
-        repleto de criaturas increibles, hoy les traigo la coleccion que logro encontrar, adentrate en
-        esta aventura <strong>pokemon!</strong>
+      Once upon a time there was a young man named Ash, he decided to undertake an adventure 
+      in a wonderful world full of incredible creatures, today I bring you the collection that I manage to find,
+      get into this pokemon adventure!
       </p>
       <Button
         className={textStyles.button}

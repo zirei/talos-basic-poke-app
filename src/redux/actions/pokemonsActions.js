@@ -48,7 +48,6 @@ export const selectedPokemon = (pokemon, pokemonUrl, pokemonDescriptionUrl) => (
         }
       })
     })
-    // https://pokeapi.co/api/v2/characteristic/3/
     .catch(error => {
       dispatch({
         type: SELECTED_POKEMONS_ERROR,

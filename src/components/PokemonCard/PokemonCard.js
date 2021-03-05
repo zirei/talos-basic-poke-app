@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Card, Container, Row, Col } from 'react-bootstrap';
 import { pokemonDataApi, pokemonImageApi } from '../../utils'
 import pokemonCardStyle from './PokemonCard.module.css'
-// import { selectedPokemon, unselectedPokemons } from '../../redux/actions/pokemonsActions';
 
 
 const PokemonCard = ({
