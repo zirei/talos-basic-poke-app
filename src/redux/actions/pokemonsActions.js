@@ -1,4 +1,4 @@
-import { pokemonDataApi } from "../../utils"
+import { pokemonDataApi, pokemonImageApi } from "../../utils"
 
 export const FETCH_POKEMONS_REQUEST = 'FETCH_POKEMONS_REQUEST'
 export const FETCH_POKEMONS_SUCCESS = 'FETCH_POKEMONS_SUCCESS'
@@ -34,7 +34,7 @@ export const fetchPokemons = (counter) => (dispatch) => {
 }
 
 export const selectedPokemon = (pokemon, pokemonUrl, pokemonDescriptionUrl) => (dispatch) => {
-  console.log('seleccionando pokemon: ', pokemon, pokemonUrl)
+
   Promise.all([
     fetch(pokemonUrl).then(pokeInfo => pokeInfo.json()),
     fetch(pokemonDescriptionUrl).then(pokeDes => pokeDes.json())

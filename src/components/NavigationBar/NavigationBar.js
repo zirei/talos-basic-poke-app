@@ -20,7 +20,6 @@ const NavigationBar = () => {
         </Form>
       </Navbar>
       <ToastPokemon />
-      }
     </nav >
   )
 }

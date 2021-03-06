@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
-import { Modal, Button, Row, Col, Container } from 'react-bootstrap';
+import { Modal, Button, Row, Col, Container, Image } from 'react-bootstrap';
 import { selectedPokemon, unselectedPokemons, keepSelectedPokemons } from '../../redux/actions/pokemonsActions'
 import { SyncLoader } from 'react-spinners'
+import { pokemonImageApi } from '../../utils'
 
-          
+
 function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons, keepSelectedPokemons }) {
+
+  const imagePokemonUrl = (pokemon) => {
+    return `${pokemonImageApi}${pokemon.url.split('/')[6]}.png`
+  }
 
   console.log('desde le modal', selectedPokemons[0])
   return (
@@ -23,10 +28,36 @@ function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons
             })}
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          {selectedPokemons.map((pokemon, index = 1) => {
+            if (showSelected) {
+              return (
+                <div>
+                  <Row>
+                    <Image variant="top" src={imagePokemonUrl(pokemon)} fluid={'true'} />
+                  </Row>
+                  <Col>
+                    {selectedPokemons[0].flavor_text_entries[0].flavor_text}
+                  </Col>
+                </div>
+              )
+            } else {
+              return (
+                <h1> Not found Pokemon</h1>
+              )
+            }
+          })}
+        </Modal.Body>
       </Modal>
     </>
   );
 }
+// pokemonsList: [],
+//   isFetching: false,
+//   error: null,
+//   selectedPokemons: [],
+//   showSelected: false,
+//   keepSelected: false,
+//   scrollCounter: 0
 
 export default PokemonsModalAlone

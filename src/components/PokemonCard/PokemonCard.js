@@ -7,16 +7,17 @@ import pokemonCardStyle from './PokemonCard.module.css'
 
 const PokemonCard = ({
   name,
-  url
+  url,
 }) => {
-  const imageUrl = `${pokemonImageApi}${url.split('/')[6]}.png`
+  const imagePokemonUrl = `${pokemonImageApi}${url.split('/')[6]}.png`
+  
   return (
     <div>
       <Container>
         <Row>
           <Col xs={6} sm={3} md={3} lg={2}>
             <Card className={pokemonCardStyle.card}>
-              <Card.Img className={pokemonCardStyle.image} variant="top" src={imageUrl} fluid={'true'} />
+              <Card.Img className={pokemonCardStyle.image} variant="top" src={imagePokemonUrl} fluid={'true'} />
               <Card.Footer className={pokemonCardStyle.textFooter}>
                 <small className="text-muted">{name}</small>
               </Card.Footer>
@@ -29,7 +30,9 @@ const PokemonCard = ({
 }
 
 const mapStateToProps = (state) => {
-  return {}
+  return {
+
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {

@@ -4,7 +4,7 @@ import galeryStyles from './GaleryComponent.module.css'
 import { CardDeck, Row, Col, Container } from 'react-bootstrap';
 import PokemonCard from '../PokemonCard'
 import { fetchPokemons, selectedPokemon, unselectedPokemons } from '../../redux/actions/pokemonsActions'
-import { getId, pokemonDataApi } from '../../utils'
+import { getId, pokemonDataApi, pokemonImageApi } from '../../utils'
 import { SyncLoader } from 'react-spinners'
 import PokemonsModal from '../PokemonsModal'
 
