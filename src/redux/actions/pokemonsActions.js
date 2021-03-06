@@ -1,5 +1,4 @@
 import { pokemonDataApi } from "../../utils"
-import pokemons from "../reducers/pokemonsReducer"
 
 export const FETCH_POKEMONS_REQUEST = 'FETCH_POKEMONS_REQUEST'
 export const FETCH_POKEMONS_SUCCESS = 'FETCH_POKEMONS_SUCCESS'
@@ -35,19 +34,27 @@ export const fetchPokemons = (counter) => (dispatch) => {
 }
 
 export const selectedPokemon = (pokemon, pokemonUrl, pokemonDescriptionUrl) => (dispatch) => {
-  console.log('seleccionando pokemon: ',pokemon,pokemonUrl)
-  fetch(pokemonUrl)
-    .then(pokeRes => pokeRes.json())
-    .then(pokeRes => {
-      console.log(pokeRes)
-      dispatch({
-        type: SELECTED_POKEMON,
-        payload: {
-          pokemon: pokemon,
-          pokemons: pokeRes,
-        }
-      })
+  console.log('seleccionando pokemon: ', pokemon, pokemonUrl)
+  Promise.all([
+    fetch(pokemonUrl).then(pokeInfo => pokeInfo.json()),
+    fetch(pokemonDescriptionUrl).then(pokeDes => pokeDes.json())
+  ]).then(([pokeInfo, pokeDes]) => {
+    if (pokeDes.gender_rate >= 4) {
+      pokeDes.gender_rate = 'female'
+    } else if (pokeDes.gender_rate === -1) {
+      pokeDes.gender_rate = 'genderless'
+    } else {
+      pokeDes.gender_rate = 'male'
+    }
+    dispatch({
+      type: SELECTED_POKEMON,
+      payload: {
+        pokemon: pokemon,
+        pokemonInfo: pokeInfo,
+        pokemonDescription: pokeDes,
+      }
     })
+  })
     .catch(error => {
       dispatch({
         type: SELECTED_POKEMONS_ERROR,

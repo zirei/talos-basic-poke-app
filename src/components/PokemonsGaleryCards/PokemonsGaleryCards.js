@@ -4,15 +4,15 @@ import galeryStyles from './GaleryComponent.module.css'
 import { CardDeck, Row, Col, Container } from 'react-bootstrap';
 import PokemonCard from '../PokemonCard'
 import { fetchPokemons, selectedPokemon, unselectedPokemons } from '../../redux/actions/pokemonsActions'
-import { getId,pokemonDataApi } from '../../utils'
+import { getId, pokemonDataApi } from '../../utils'
 import { SyncLoader } from 'react-spinners'
 import PokemonsModal from '../PokemonsModal'
 
-const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFetching, selectedPokemon, unselectedPokemons,url }) => {
-  
+const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFetching, selectedPokemon, unselectedPokemons, url }) => {
+
   const pokemonDescriptionUrl = (url) => {
     return `${pokemonDataApi}pokemon-species/${url.split('/')[6]}/`
-  } 
+  }
 
   useEffect(() => {
     fetchPokemons(scrollCounter)
@@ -25,7 +25,7 @@ const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFet
         {pokemonsList.map((pokemon) => {
           return (
             <div key={pokemon.name + getId} onClick={() => {
-              selectedPokemon(pokemon, pokemon.url, pokemonDescriptionUrl(pokemon.url) )
+              selectedPokemon(pokemon, pokemon.url, pokemonDescriptionUrl(pokemon.url))
             }}>
               <PokemonCard
                 name={pokemon.name}
@@ -36,7 +36,7 @@ const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFet
         })}
       </CardDeck>
       <div>
-        <PokemonsModal/>
+        <PokemonsModal />
       </div>
     </div>
   )
@@ -54,7 +54,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchPokemons: (url) => dispatch(fetchPokemons(url)),
-    selectedPokemon: (pokemon, url) => dispatch(selectedPokemon(pokemon, url)),
+    selectedPokemon: (pokemon, pokemonUrl, pokemonDescriptionUrl) => dispatch(
+      selectedPokemon(pokemon, pokemonUrl, pokemonDescriptionUrl)
+    ),
     unselectedPokemons: () => dispatch(unselectedPokemons())
   }
 }

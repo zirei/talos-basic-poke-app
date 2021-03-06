@@ -13,6 +13,7 @@ function PokemonsModal({ showSelected, unselectedPokemons, selectedPokemons, kee
     console.log('click', selectedPokemons)
     keepSelectedPokemons();
   }
+
   console.log(selectedPokemons.length)
   return (
     <>
