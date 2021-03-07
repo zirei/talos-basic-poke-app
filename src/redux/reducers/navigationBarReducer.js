@@ -1,4 +1,5 @@
 import { STORE_POKEMON_SEARCH } from '../actions/navigationBarActions'
+import pokemons from './pokemonsReducer'
 
 const initialState = {
   search_bar: '',
@@ -11,11 +12,27 @@ function storePokemonSearch(state = initialState, action) {
       return {
         ...state,
         search_bar: action.payload.search_bar,
-        isFetching: true,
+        isFetching: true
+        // search_bar === ''
+        // ? isFetching: false
+        // : isFetching: true
+
       }
+
     default:
       return state
   }
 }
 
+
 export default storePokemonSearch
+
+// const filterItems = (query) => {
+//   storePokemonSearching.pokemons
+//   return fruits.filter(function (el) {
+//     return el.toLowerCase().indexOf(query.toLowerCase()) > -1;
+//   })
+// }
+
+// console.log(filterItems('ap')); // ['apple', 'grapes']
+// console.log(filterItems('an')); // ['banana', 'mango', 'orange']

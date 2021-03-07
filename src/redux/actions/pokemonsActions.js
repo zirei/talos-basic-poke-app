@@ -7,6 +7,7 @@ export const SELECTED_POKEMON = 'SELECTED_POKEMON'
 export const UNSELECTED_POKEMON = 'UNSELECTED_POKEMON'
 export const SELECTED_POKEMONS_ERROR = 'SELECTED_POKEMONS_ERROR'
 export const KEEP_SELECTED_POKEMONS = 'KEEP_SELECTED_POKEMONS'
+export const COUNT_POKEMON = 'COUNT_POKEMON'
 
 export const fetchPokemons = (counter) => (dispatch) => {
   const url = `${pokemonDataApi}pokemon?offset=${counter}&limit=20`
@@ -79,6 +80,15 @@ export const unselectedPokemons = () => (dispatch) => {
     type: UNSELECTED_POKEMON,
     payload: {
       pokemons: []
+    }
+  })
+}
+
+export const countPokemon = (scrollCounter) => (dispatch) => {
+  dispatch({
+    type: COUNT_POKEMON,
+    payload: {
+      scrollCounter: scrollCounter + 20
     }
   })
 }

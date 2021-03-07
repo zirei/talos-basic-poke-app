@@ -6,11 +6,13 @@ import ToastPokemon from '../ToastPokemon'
 import navigationStyle from './NavigationBar.module.css'
 import { storePokemonSearching } from '../../redux/actions/navigationBarActions'
 
-const NavigationBar = ({storePokemonSearching}) => {
+const NavigationBar = ({ storePokemonSearching, isFetchingSearch }) => {
   const input = useRef()
 
   const getInput = (inputEvent) => {
-    storePokemonSearching(inputEvent.target.value)
+    inputEvent.preventDefault()
+    const search = inputEvent.target.value
+    storePokemonSearching(search)
   }
 
   return (
@@ -38,14 +40,13 @@ const NavigationBar = ({storePokemonSearching}) => {
 
 const mapStateToProps = (state) => {
   return {
-    
   }
 }
 
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    storePokemonSearching:(searchPokemon) => dispatch(storePokemonSearching(searchPokemon)),
+    storePokemonSearching: (searchPokemon) => dispatch(storePokemonSearching(searchPokemon)),
   }
 }
 

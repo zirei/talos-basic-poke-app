@@ -14,7 +14,6 @@ function PokemonsModal({ showSelected, unselectedPokemons, selectedPokemons, kee
     keepSelectedPokemons();
   }
 
-  console.log(selectedPokemons.length)
   return (
     <>
       {selectedPokemons.length === 2

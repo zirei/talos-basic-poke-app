@@ -4,19 +4,6 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import rootReducer from './reducers'
 
-// // Midleware
-// const confirmDeleteTodo = (store) => (next) => (action) => {
-//   if (action.type === 'DELETE_TODO') {
-//     let conf = window.confirm('Seguro que quieres elimiar el todo?')
-
-//     if (conf) {
-//       next(action)
-//     }
-//   } else {
-//     next(action)
-//   }
-// }
-
 const composeEnhancers = composeWithDevTools({
   name: 'PokeAppTaloByZirei',
   realtime: true,

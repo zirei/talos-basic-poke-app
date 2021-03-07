@@ -3,23 +3,31 @@ import { connect } from 'react-redux';
 import galeryStyles from './GaleryComponent.module.css'
 import { CardDeck, Row, Col, Container } from 'react-bootstrap';
 import PokemonCard from '../PokemonCard'
-import { fetchPokemons, selectedPokemon, unselectedPokemons } from '../../redux/actions/pokemonsActions'
+import { fetchPokemons, selectedPokemon, unselectedPokemons, countPokemon } from '../../redux/actions/pokemonsActions'
 import { getId, pokemonDataApi, pokemonImageApi } from '../../utils'
 import { SyncLoader } from 'react-spinners'
 import PokemonsModal from '../PokemonsModal'
-import { storePokemonSearching } from '../../redux/actions/navigationBarActions'
 
-const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFetching, selectedPokemon, unselectedPokemons, url, search_bar }) => {
+const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFetching, selectedPokemon, unselectedPokemons, url, countPokemon }) => {
 
   const pokemonDescriptionUrl = (url) => {
     return `${pokemonDataApi}pokemon-species/${url.split('/')[6]}/`
   }
 
   useEffect(() => {
-    fetchPokemons(scrollCounter)
+    //debounce
+    setTimeout(() => {
+      fetchPokemons(scrollCounter)
+    }, 2000)
   }, [fetchPokemons, scrollCounter])
 
+  window.onscroll = (() => {
+    if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+      countPokemon(scrollCounter)
+    }
+  });
 
+  console.log(window.innerHeight, 'otra', document.documentElement.scrollTop, 'deberia ser', document.documentElement.offsetHeight)
   return (
     <div xs="auto" sm="auto" md="auto" lg="auto" className={galeryStyles.CardDeckContainer}>
       < CardDeck >
@@ -45,10 +53,13 @@ const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFet
 
 const mapStateToProps = (state) => {
   return {
-    queryCounter: state.pokemons.queryCounter,
-    pokemonsList: state.pokemons.pokemonsList,
+    scrollCounter: state.pokemons.scrollCounter,
     showSelected: state.pokemons.showSelected,
-    search_bar: state.storePokemonSearch.search_bar,
+    pokemonsList: state.pokemons.pokemonsList.filter(
+      (pokemon) => pokemon.name.toLowerCase().includes(
+        state.storePokemonSearch.search_bar.toLowerCase()
+      )
+    ),
   }
 }
 
@@ -59,7 +70,8 @@ const mapDispatchToProps = (dispatch) => {
     selectedPokemon: (pokemon, pokemonUrl, pokemonDescriptionUrl) => dispatch(
       selectedPokemon(pokemon, pokemonUrl, pokemonDescriptionUrl)
     ),
-    unselectedPokemons: () => dispatch(unselectedPokemons())
+    unselectedPokemons: () => dispatch(unselectedPokemons()),
+    countPokemon: (scrollCounter) => dispatch(countPokemon(scrollCounter)),
   }
 }
 

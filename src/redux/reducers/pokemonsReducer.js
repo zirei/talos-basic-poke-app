@@ -5,7 +5,8 @@ import {
   SELECTED_POKEMON,
   UNSELECTED_POKEMON,
   SELECTED_POKEMONS_ERROR,
-  KEEP_SELECTED_POKEMONS
+  KEEP_SELECTED_POKEMONS,
+  COUNT_POKEMON,
 } from '../actions/pokemonsActions'
 
 const initialState = {
@@ -77,6 +78,12 @@ function pokemons(state = initialState, action) {
         ...state,
         isFetching: false,
         error: action.payload.error
+      }
+    case COUNT_POKEMON:
+      return {
+        ...state,
+        isFetching: false,
+        scrollCounter: action.payload.scrollCounter
       }
 
     default:
