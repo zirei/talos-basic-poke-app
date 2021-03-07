@@ -1,9 +1,12 @@
 import React, { useEffect, useRef } from 'react'
 import Chart from 'chart.js';
 
-const ChartComponentVS = ({ name, stats, statNames, name2, stats2 }) => {
+const ChartComponentVS = ({ name, stats, statNames, name2, stats2,color, borderColor, color2, borderColor2 }) => {
   const chartRef = useRef()
-
+  if (color === color2){
+    color2 = 'rgba(167, 246, 222, 1)'
+    borderColor2 = 'rgba(167, 246, 222, 1)'
+  }
 
   useEffect(() => {
     const ctx = chartRef.current.getContext('2d');
@@ -18,21 +21,21 @@ const ChartComponentVS = ({ name, stats, statNames, name2, stats2 }) => {
             label: name,
             data: stats,
             backgroundColor: [
-              'rgba(56, 120, 106, 0.95)',
-              'rgba(56, 120, 106, 0.95)',
-              'rgba(56, 120, 106, 0.95)',
-              'rgba(56, 120, 106, 0.95)',
-              'rgba(56, 120, 106, 0.95)',
-              'rgba(56, 120, 106, 0.95)',
+              color,
+              color,
+              color,
+              color,
+              color,
+              color,
 
             ],
             borderColor: [
-              'rgba(0, 108, 85, 1)',
-              'rgba(0, 108, 85, 1)',
-              'rgba(0, 108, 85, 1)',
-              'rgba(0, 108, 85, 1)',
-              'rgba(0, 108, 85, 1)',
-              'rgba(0, 108, 85, 1)',
+              borderColor,        
+              borderColor,        
+              borderColor,        
+              borderColor,        
+              borderColor,        
+              borderColor,        
 
             ],
             borderWidth: 1
@@ -41,21 +44,21 @@ const ChartComponentVS = ({ name, stats, statNames, name2, stats2 }) => {
             label: name2,
             data: stats2,
             backgroundColor: [
-              'rgba(86, 174, 157, 0.95)',
-              'rgba(86, 174, 157, 0.95)',
-              'rgba(86, 174, 157, 0.95)',
-              'rgba(86, 174, 157, 0.95)',
-              'rgba(86, 174, 157, 0.95)',
-              'rgba(86, 174, 157, 0.95)',
+              color2,
+              color2,
+              color2,
+              color2,
+              color2,
+              color2,
 
             ],
             borderColor: [
-              'rgba(148, 203, 193, 1)',
-              'rgba(148, 203, 193, 1)',
-              'rgba(148, 203, 193, 1)',
-              'rgba(148, 203, 193, 1)',
-              'rgba(148, 203, 193, 1)',
-              'rgba(148, 203, 193, 1)',
+              borderColor2,
+              borderColor2,
+              borderColor2,
+              borderColor2,
+              borderColor2,
+              borderColor2,
 
             ],
             borderWidth: 1

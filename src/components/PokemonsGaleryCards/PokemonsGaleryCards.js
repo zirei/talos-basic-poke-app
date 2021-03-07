@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
 import galeryStyles from './GaleryComponent.module.css'
 import { CardDeck, Row, Col, Container } from 'react-bootstrap';
@@ -9,7 +9,7 @@ import { SyncLoader } from 'react-spinners'
 import PokemonsModal from '../PokemonsModal'
 import { storePokemonSearching } from '../../redux/actions/navigationBarActions'
 
-const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFetching, selectedPokemon, unselectedPokemons, url,search_bar }) => {
+const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFetching, selectedPokemon, unselectedPokemons, url, search_bar }) => {
 
   const pokemonDescriptionUrl = (url) => {
     return `${pokemonDataApi}pokemon-species/${url.split('/')[6]}/`
@@ -21,8 +21,7 @@ const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFet
 
 
   return (
-    <div>
-      {/* if (search_bar === '') */}
+    <div xs="auto" sm="auto" md="auto" lg="auto" className={galeryStyles.CardDeckContainer}>
       < CardDeck >
         {pokemonsList.map((pokemon) => {
           return (

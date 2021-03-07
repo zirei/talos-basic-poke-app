@@ -33,12 +33,12 @@ function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons
               return (
                 <div className={PokeDescriptionStyle} key={pokemon.name + getId(12)}>
                   <Row xs={12} sm={12} >
-                    <Col xs={6} sm={6} md={4} lg={4}>
+                    <Col xs={4} sm={4} md={4} lg={4}>
                       <Image className={PokeDescriptionStyle.imgFluid}
                         variant="top" src={imagePokemonUrl(pokemon)} fluid={'true'}
                       />
                     </Col>
-                    <Col xs={6} sm={6} md={8} lg={8}>
+                    <Col xs={8} sm={8} md={8} lg={8}>
                       {pokemon.flavor_text_entries[0].flavor_text}
                       <hr />
                       <Row>
@@ -93,6 +93,16 @@ function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons
                         statNames={pokemon.stats.map((state) => {
                           return state.stat.name
                         })}
+                        color={
+                          pokemon.color.name === 'white'
+                          ? 'rgba(167, 246, 222, 0.5)'
+                          : pokemon.color.name
+                        }
+                        borderColor={
+                          pokemon.color.name === 'white'
+                          ? 'rgba(167, 246, 222, 1)'
+                          : pokemon.color.name
+                        }
                       />
                     </Col>
                   </Row>

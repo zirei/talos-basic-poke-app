@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import Chart from 'chart.js'; 
 
-const ChartComponent = ({name, stats,statNames}) => {
+const ChartComponent = ({name, stats,statNames,color, borderColor}) => {
   const chartRef = useRef()
 
 
@@ -16,20 +16,21 @@ const ChartComponent = ({name, stats,statNames}) => {
           label: name,
           data: stats,
           backgroundColor: [
-            'rgba(56, 120, 106, 0.95)',
-            'rgba(56, 120, 106, 0.95)',
-            'rgba(56, 120, 106, 0.95)',
-            'rgba(56, 120, 106, 0.95)',
-            'rgba(56, 120, 106, 0.95)',
-            'rgba(56, 120, 106, 0.95)',
+            color,
+            color,
+            color,
+            color,
+            color,
+            color,
             
           ],
           borderColor: [
-            'rgba(0, 108, 85, 1)',
-            'rgba(0, 108, 85, 1)',
-            'rgba(0, 108, 85, 1)',
-            'rgba(0, 108, 85, 1)',
-            'rgba(0, 108, 85, 1)',
+            borderColor,
+            borderColor,
+            borderColor,
+            borderColor,
+            borderColor,
+            borderColor,
 
           ],
           borderWidth: 1

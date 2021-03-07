@@ -16,7 +16,7 @@ const NavigationBar = ({storePokemonSearching}) => {
   return (
     < nav className={navigationStyle.style} >
       <Navbar bg="light" variant="light">
-        <Navbar.Brand href="/">PokeApp</Navbar.Brand>
+        <Navbar.Brand href="/home">PokeApp</Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="/pokemons">Pokemons</Nav.Link>
         </Nav>

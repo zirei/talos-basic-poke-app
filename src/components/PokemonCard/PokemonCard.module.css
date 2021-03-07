@@ -5,10 +5,10 @@
 }
 
 
-.card {
-  display: inline-block;
-  width: 12rem;
-  margin: 1rem 0;
+.cards {
+  display: inline-flex;
+  width: 10rem;
+  margin: 5%; 
 }
 
 .image {
@@ -24,16 +24,3 @@
   text-transform: uppercase;
   padding: 0 1.25rem;
 }
-
-/* .card {
-  max-width: 100rem;
-  --blue: rgba(86, 198, 176, 0.85);
-  --orange: rgba(246, 162, 7, 0.8);
-  padding: 1rem;
-  border: 1px solid var(--blue);
-  background-color: var(--orange);
-  margin: 1rem;
-  border-radius: 0.2rem;
-  box-shadow: 0px 2px 4px 1px var(--blackLight);
-} */
-

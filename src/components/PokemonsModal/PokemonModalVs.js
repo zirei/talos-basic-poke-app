@@ -43,14 +43,14 @@ function PokemonsModalVS({ showSelected, selectedPokemons, unselectedPokemons, k
                   </span>
                 ))}
               </Col>
-              <Col xs={2} sm={2} md={2} lg={2}>
+              <Col xs={2} sm={1} md={2} lg={2}>
                 <span className={PokeDescriptionStyle.titles}> Height </span><br />
                 <span className={PokeDescriptionStyle.titles}> Weight </span><br />
                 <span className={PokeDescriptionStyle.titles}> Gender </span><br />
                 <span className={PokeDescriptionStyle.titles}> Abilities </span>
 
               </Col>
-              <Col xs={5} sm={5} md={5} lg={5}>
+              <Col xs={5} sm={6} md={5} lg={5}>
                 <span className={PokeDescriptionStyle.textMarginVs}> {selectedPokemons[1].height}m </span><br />
                 <span className={PokeDescriptionStyle.textMarginVs}> {selectedPokemons[1].weight}kg </span><br />
                 <span className={PokeDescriptionStyle.textMarginVs}> {selectedPokemons[1].gender_rate} </span><br />
@@ -77,6 +77,26 @@ function PokemonsModalVS({ showSelected, selectedPokemons, unselectedPokemons, k
                 statNames={selectedPokemons[0].stats.map((state) => {
                   return state.stat.name
                 })}
+                color={
+                  selectedPokemons[0].color.name === 'white'
+                  ? 'rgba(167, 246, 222, 0.5)'
+                  : selectedPokemons[0].color.name
+                }
+                borderColor={
+                  selectedPokemons[0].color.name === 'white'
+                  ? 'rgba(167, 246, 222, 1)'
+                  : selectedPokemons[0].color.name
+                }
+                color2={
+                  selectedPokemons[1].color.name === 'white'
+                  ? 'rgba(167, 246, 222, 1)'
+                  : selectedPokemons[1].color.name
+                }
+                borderColor2={
+                  selectedPokemons[1].color.name === 'white'
+                  ? 'rgba(167, 246, 222, 1)'
+                  : selectedPokemons[1].color.name
+                }
               />
             </Col>
           </div>

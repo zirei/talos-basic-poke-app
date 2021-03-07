@@ -10,3 +10,9 @@
     background-color: var(--red) ;
     color: var(--white);
 }
+
+@media (max-width: 576px) { 
+    .text{
+        padding: 10% 5%;
+    }
+}
