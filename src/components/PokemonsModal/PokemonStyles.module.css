@@ -1,0 +1,43 @@
+.imgFluid {
+  width: 10rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.margin {
+  margin-top: 0.5rem;
+}
+
+.titles {
+  font-weight: 700;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.statesStyle {
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.textMargin {
+  margin-bottom: 1rem;
+}
+
+.textMarginVs {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  padding-left: 5rem;
+}
+
+.compareButton{
+  --backGgroundColor:  rgba(110, 117, 124, 1); 
+  --textColor: rgba(241, 242, 242, 1);
+  margin-left: 1rem;
+  color: var(--textColor);
+  background-color: var(--backGgroundColor);
+}

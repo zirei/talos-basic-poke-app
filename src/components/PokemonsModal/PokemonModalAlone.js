@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { connect } from 'react-redux';
-import { Modal, Button, Row, Col, Container, Image } from 'react-bootstrap';
-import { selectedPokemon, unselectedPokemons, keepSelectedPokemons } from '../../redux/actions/pokemonsActions'
+import { Modal, Button, Row, Col, Image } from 'react-bootstrap';
 import { SyncLoader } from 'react-spinners'
-import { pokemonImageApi } from '../../utils'
-
+import { pokemonImageApi, getId } from '../../utils'
+import PokeDescriptionStyle from './PokemonStyles.module.css'
+import ChartComponent from '../ChartComponent'
 
 function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons, keepSelectedPokemons }) {
 
@@ -12,33 +12,90 @@ function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons
     return `${pokemonImageApi}${pokemon.url.split('/')[6]}.png`
   }
 
-  console.log('desde le modal', selectedPokemons[0])
   return (
     <>
       <Modal show={showSelected} onHide={unselectedPokemons}>
         <Modal.Header closeButton>
           <Modal.Title>
-            {selectedPokemons.map((pokemon, index = 1) => {
+            {selectedPokemons.map((pokemon) => {
               return (
-                <div key={index + Math.random()}>
+                <div key={pokemon.name + getId()}>
                   {String(pokemon.name).toUpperCase()}
-                  <Button onClick={keepSelectedPokemons} variant='secondary'> Compare to...</Button>
+                  <Button className={PokeDescriptionStyle.compareButton} onClick={keepSelectedPokemons} variant='secondary'> Compare to...</Button>
                 </div>
               )
             })}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {selectedPokemons.map((pokemon, index = 1) => {
+          {selectedPokemons.map((pokemon) => {
             if (showSelected) {
               return (
-                <div>
-                  <Row>
-                    <Image variant="top" src={imagePokemonUrl(pokemon)} fluid={'true'} />
+                <div className={PokeDescriptionStyle} key={pokemon.name + getId()}>
+                  <Row xs={12} sm={12} >
+                    <Col xs={6} sm={6} md={4} lg={4}>
+                      <Image className={PokeDescriptionStyle.imgFluid}
+                        variant="top" src={imagePokemonUrl(pokemon)} fluid={'true'}
+                      />
+                    </Col>
+                    <Col xs={6} sm={6} md={8} lg={8}>
+                      {selectedPokemons[0].flavor_text_entries[0].flavor_text}
+                      <hr />
+                      <Row>
+                        <Col xs={4} sm={4} md={4} lg={4}>
+                          <span className={PokeDescriptionStyle.titles}> Height </span>
+                          <span className={PokeDescriptionStyle.textMargin}> {selectedPokemons[0].height}m </span>
+                        </Col>
+                        <Col xs={4} sm={4} md={4} lg={4}>
+                          <span className={PokeDescriptionStyle.titles}> Weight </span>
+                          <span className={PokeDescriptionStyle.textMargin}> {selectedPokemons[0].weight}kg </span>
+
+                        </Col>
+                        <Col xs={4} sm={4} md={4} lg={4}>
+                          <span className={PokeDescriptionStyle.titles}> Gender </span>
+                          <span className={PokeDescriptionStyle.textMargin}> {selectedPokemons[0].gender_rate} </span>
+
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col className={PokeDescriptionStyle.margin} xs={6} sm={6} md={6} lg={6}>
+                          <span className={PokeDescriptionStyle.titles}> Abilities </span>
+                          <ul>
+                            {pokemon.abilities.map((pokeAbilitis) => (
+                              <li key={pokeAbilitis + getId()}>
+                                {pokeAbilitis.ability.name}
+                              </li>
+                            ))}
+                          </ul>
+                        </Col>
+                        <Col className={PokeDescriptionStyle.margin} xs={6} sm={6} md={6} lg={6}>
+                          <span className={PokeDescriptionStyle.titles}> Type </span>
+                          <ul>
+                            {pokemon.types.map((pokeTypes) => (
+                              <li key={pokeTypes + getId()}>
+                                {pokeTypes.type.name}
+                              </li>
+                            ))}
+                          </ul>
+                        </Col>
+                      </Row>
+                    </Col>
                   </Row>
-                  <Col>
-                    {selectedPokemons[0].flavor_text_entries[0].flavor_text}
-                  </Col>
+                  <hr />
+                  <Row>
+                    <Col>
+                      <h1 className={PokeDescriptionStyle.statesStyle}> Stats </h1>
+                      <ChartComponent
+                        name={pokemon.name}
+                        stats={pokemon.stats.map((state) => {
+                          return state.base_stat
+                        })}
+                        statNames={pokemon.stats.map((state) => {
+                          return state.stat.name
+                        })}
+                      />
+                    </Col>
+                  </Row>
                 </div>
               )
             } else {
@@ -52,12 +109,5 @@ function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons
     </>
   );
 }
-// pokemonsList: [],
-//   isFetching: false,
-//   error: null,
-//   selectedPokemons: [],
-//   showSelected: false,
-//   keepSelected: false,
-//   scrollCounter: 0
 
 export default PokemonsModalAlone

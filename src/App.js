@@ -7,8 +7,8 @@ import store from './redux/store'
 import PokemonsGaleryCards from './components/PokemonsGaleryCards'
 import NavigationBar from "./components/NavigationBar"
 import Home from './components/Home'
-import Chart from './components/ChartsComponent'
-import Charts from './components/ChartsComponent'
+import Chart from './components/ChartComponent'
+import Charts from './components/ChartComponent'
 
 const App = () => {
   return (
@@ -17,7 +17,6 @@ const App = () => {
         <NavigationBar />
         <Route path='/' exact component={Home} />
         <Route path='/pokemons' component={PokemonsGaleryCards} />
-        {/* <Charts /> */}
       </BrowserRouter>
     </Provider>
   )

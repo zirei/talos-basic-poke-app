@@ -24,7 +24,7 @@ const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFet
       < CardDeck >
         {pokemonsList.map((pokemon) => {
           return (
-            <div key={pokemon.name + getId} onClick={() => {
+            <div key={pokemon.name + getId()} onClick={() => {
               selectedPokemon(pokemon, pokemon.url, pokemonDescriptionUrl(pokemon.url))
             }}>
               <PokemonCard

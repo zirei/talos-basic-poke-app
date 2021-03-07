@@ -15,7 +15,7 @@ const PokemonCard = ({
     <div>
       <Container>
         <Row>
-          <Col xs={6} sm={3} md={3} lg={2}>
+          <Col xs={6} sm={4} md={4} lg={2}>
             <Card className={pokemonCardStyle.card}>
               <Card.Img className={pokemonCardStyle.image} variant="top" src={imagePokemonUrl} fluid={'true'} />
               <Card.Footer className={pokemonCardStyle.textFooter}>
