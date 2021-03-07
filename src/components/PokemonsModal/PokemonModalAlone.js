@@ -19,7 +19,7 @@ function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons
           <Modal.Title>
             {selectedPokemons.map((pokemon) => {
               return (
-                <div key={pokemon.name + getId()}>
+                <div key={pokemon.name + getId(11)}>
                   {String(pokemon.name).toUpperCase()}
                   <Button className={PokeDescriptionStyle.compareButton} onClick={keepSelectedPokemons} variant='secondary'> Compare to...</Button>
                 </div>
@@ -31,7 +31,7 @@ function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons
           {selectedPokemons.map((pokemon) => {
             if (showSelected) {
               return (
-                <div className={PokeDescriptionStyle} key={pokemon.name + getId()}>
+                <div className={PokeDescriptionStyle} key={pokemon.name + getId(12)}>
                   <Row xs={12} sm={12} >
                     <Col xs={6} sm={6} md={4} lg={4}>
                       <Image className={PokeDescriptionStyle.imgFluid}
@@ -39,7 +39,7 @@ function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons
                       />
                     </Col>
                     <Col xs={6} sm={6} md={8} lg={8}>
-                      {selectedPokemons[0].flavor_text_entries[0].flavor_text}
+                      {pokemon.flavor_text_entries[0].flavor_text}
                       <hr />
                       <Row>
                         <Col xs={4} sm={4} md={4} lg={4}>
@@ -62,7 +62,7 @@ function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons
                           <span className={PokeDescriptionStyle.titles}> Abilities </span>
                           <ul>
                             {pokemon.abilities.map((pokeAbilitis) => (
-                              <li key={pokeAbilitis + getId()}>
+                              <li key={pokeAbilitis + getId(13)}>
                                 {pokeAbilitis.ability.name}
                               </li>
                             ))}
@@ -72,7 +72,7 @@ function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons
                           <span className={PokeDescriptionStyle.titles}> Type </span>
                           <ul>
                             {pokemon.types.map((pokeTypes) => (
-                              <li key={pokeTypes + getId()}>
+                              <li key={pokeTypes + getId(14)}>
                                 {pokeTypes.type.name}
                               </li>
                             ))}

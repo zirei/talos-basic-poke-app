@@ -7,7 +7,6 @@ const ChartComponent = ({name, stats,statNames}) => {
 
   useEffect(() => {
     const ctx = chartRef.current.getContext('2d');
-    console.log('rdsfsdfsfdsfd',stats)
 
     new Chart(ctx, {
       type: 'bar',
@@ -26,12 +25,11 @@ const ChartComponent = ({name, stats,statNames}) => {
             
           ],
           borderColor: [
-            'rgba(56, 120, 106, 1)',
-            'rgba(56, 120, 106, 1)',
-            'rgba(56, 120, 106, 1)',
-            'rgba(56, 120, 106, 1)',
-            'rgba(56, 120, 106, 1)',
-            'rgba(56, 120, 106, 1)',
+            'rgba(0, 108, 85, 1)',
+            'rgba(0, 108, 85, 1)',
+            'rgba(0, 108, 85, 1)',
+            'rgba(0, 108, 85, 1)',
+            'rgba(0, 108, 85, 1)',
 
           ],
           borderWidth: 1

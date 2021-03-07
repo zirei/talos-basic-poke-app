@@ -7,8 +7,9 @@ import { fetchPokemons, selectedPokemon, unselectedPokemons } from '../../redux/
 import { getId, pokemonDataApi, pokemonImageApi } from '../../utils'
 import { SyncLoader } from 'react-spinners'
 import PokemonsModal from '../PokemonsModal'
+import { storePokemonSearching } from '../../redux/actions/navigationBarActions'
 
-const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFetching, selectedPokemon, unselectedPokemons, url }) => {
+const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFetching, selectedPokemon, unselectedPokemons, url,search_bar }) => {
 
   const pokemonDescriptionUrl = (url) => {
     return `${pokemonDataApi}pokemon-species/${url.split('/')[6]}/`
@@ -21,10 +22,11 @@ const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFet
 
   return (
     <div>
+      {/* if (search_bar === '') */}
       < CardDeck >
         {pokemonsList.map((pokemon) => {
           return (
-            <div key={pokemon.name + getId()} onClick={() => {
+            <div key={pokemon.name + getId(22)} onClick={() => {
               selectedPokemon(pokemon, pokemon.url, pokemonDescriptionUrl(pokemon.url))
             }}>
               <PokemonCard
@@ -46,7 +48,8 @@ const mapStateToProps = (state) => {
   return {
     queryCounter: state.pokemons.queryCounter,
     pokemonsList: state.pokemons.pokemonsList,
-    showSelected: state.pokemons.showSelected
+    showSelected: state.pokemons.showSelected,
+    search_bar: state.storePokemonSearch.search_bar,
   }
 }
 

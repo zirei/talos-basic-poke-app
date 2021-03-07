@@ -15,7 +15,7 @@ const App = () => {
     <Provider store={store}>
       <BrowserRouter>
         <NavigationBar />
-        <Route path='/' exact component={Home} />
+        <Route default path='/home' exact component={Home} />
         <Route path='/pokemons' component={PokemonsGaleryCards} />
       </BrowserRouter>
     </Provider>
