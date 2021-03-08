@@ -8,13 +8,19 @@ function PokemonsModalVS({ showSelected, selectedPokemons, unselectedPokemons, k
   const imagePokemonUrl = (pokemon) => {
     return `${pokemonImageApi}${pokemon.url.split('/')[6]}.png`
   }
+  let comparativeMessage
+  if (String(selectedPokemons[0].name).toUpperCase() === String(selectedPokemons[1].name).toUpperCase()) {
+    comparativeMessage = `${String(selectedPokemons[0].name).toUpperCase()} VS. ${String(selectedPokemons[1].name).toUpperCase()}2`
+  } else {
+    comparativeMessage = `${String(selectedPokemons[0].name).toUpperCase()} VS. ${String(selectedPokemons[1].name).toUpperCase()}`
+  }
   return (
     <>
       <Modal show={showSelected} onHide={unselectedPokemons}>
         <Modal.Header closeButton>
           <Modal.Title>
             <div>
-              {String(selectedPokemons[0].name).toUpperCase()} VS. {String(selectedPokemons[1].name).toUpperCase()}
+              {comparativeMessage}
             </div>
           </Modal.Title>
         </Modal.Header>
@@ -77,23 +83,23 @@ function PokemonsModalVS({ showSelected, selectedPokemons, unselectedPokemons, k
                 })}
                 color={
                   selectedPokemons[0].color.name === 'white'
-                  ? 'rgba(167, 246, 222, 0.5)'
-                  : selectedPokemons[0].color.name
+                    ? 'rgba(167, 246, 222, 0.5)'
+                    : selectedPokemons[0].color.name
                 }
                 borderColor={
                   selectedPokemons[0].color.name === 'white'
-                  ? 'rgba(167, 246, 222, 1)'
-                  : selectedPokemons[0].color.name
+                    ? 'rgba(167, 246, 222, 1)'
+                    : selectedPokemons[0].color.name
                 }
                 color2={
                   selectedPokemons[1].color.name === 'white'
-                  ? 'rgba(167, 246, 222, 1)'
-                  : selectedPokemons[1].color.name
+                    ? 'rgba(167, 246, 222, 1)'
+                    : selectedPokemons[1].color.name
                 }
                 borderColor2={
                   selectedPokemons[1].color.name === 'white'
-                  ? 'rgba(167, 246, 222, 1)'
-                  : selectedPokemons[1].color.name
+                    ? 'rgba(167, 246, 222, 1)'
+                    : selectedPokemons[1].color.name
                 }
               />
             </Col>

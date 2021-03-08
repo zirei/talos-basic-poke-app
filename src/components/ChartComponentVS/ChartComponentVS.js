@@ -7,6 +7,9 @@ const ChartComponentVS = ({ name, stats, statNames, name2, stats2,color, borderC
     color2 = 'rgba(167, 246, 222, 1)'
     borderColor2 = 'rgba(167, 246, 222, 1)'
   }
+  if (name === name2){
+    name2 += 2
+  }
 
   useEffect(() => {
     const ctx = chartRef.current.getContext('2d');

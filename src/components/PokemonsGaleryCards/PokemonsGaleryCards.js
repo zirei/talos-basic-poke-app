@@ -49,10 +49,10 @@ const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFet
         </div>
         :
         <div className={galeryStyles.searchText} >
-          <span onClick={() => {
+          <span type="button" onClick={() => {
             countPokemon(scrollCounter)
           }}>
-            Show more Pokemons
+            Click here or Scroll to see more Pokemons
         </span>
         </div>
       }

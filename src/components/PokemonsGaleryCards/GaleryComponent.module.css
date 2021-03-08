@@ -12,7 +12,10 @@
 
 .searchText {
   color: var(--searchTextColor);
-  padding-left: 40%;
+  margin: 1rem 33%;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  text-align: center;
 }
 
 .spinerSearch {
