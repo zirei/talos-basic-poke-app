@@ -18,7 +18,7 @@ const NavigationBar = ({ storePokemonSearching, isFetchingSearch }) => {
   return (
     < nav className={navigationStyle.style} >
       <Navbar bg="light" variant="light">
-        <Navbar.Brand href="/home">PokeApp</Navbar.Brand>
+        <Navbar.Brand href="/">PokeApp</Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="/pokemons">Pokemons</Nav.Link>
         </Nav>

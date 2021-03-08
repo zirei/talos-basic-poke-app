@@ -16,7 +16,6 @@ export const fetchPokemons = (counter) => (dispatch) => {
   fetch(url)
     .then(res => res.json())
     .then(queryData => {
-      console.log(queryData)
       dispatch({
         type: FETCH_POKEMONS_SUCCESS,
         payload: {

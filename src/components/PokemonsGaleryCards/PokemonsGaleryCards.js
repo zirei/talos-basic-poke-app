@@ -27,22 +27,21 @@ const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFet
     }
   });
 
-  console.log(window.innerHeight, 'otra', document.documentElement.scrollTop, 'deberia ser', document.documentElement.offsetHeight)
   return (
     <div xs="auto" sm="auto" md="auto" lg="auto" className={galeryStyles.CardDeckContainer}>
       < CardDeck >
         {pokemonsList.map((pokemon) => {
-          return (
-            <div key={pokemon.name + getId(22)} onClick={() => {
-              selectedPokemon(pokemon, pokemon.url, pokemonDescriptionUrl(pokemon.url))
-            }}>
-              <PokemonCard
-                name={pokemon.name}
-                url={pokemon.url}
-              />
-            </div>
-          )
-        })}
+            return (
+              <div key={pokemon.name + getId(22)} onClick={() => {
+                selectedPokemon(pokemon, pokemon.url, pokemonDescriptionUrl(pokemon.url))
+              }}>
+                <PokemonCard
+                  name={pokemon.name}
+                  url={pokemon.url}
+                />
+              </div>
+            )
+          })}
       </CardDeck>
       <div>
         <PokemonsModal />
@@ -53,6 +52,7 @@ const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFet
 
 const mapStateToProps = (state) => {
   return {
+    isFetching: state.storePokemonSearch.isFetching,
     scrollCounter: state.pokemons.scrollCounter,
     showSelected: state.pokemons.showSelected,
     pokemonsList: state.pokemons.pokemonsList.filter(
