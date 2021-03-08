@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Card, Container, Row, Col } from 'react-bootstrap';
+import { Card, Container} from 'react-bootstrap';
 import { pokemonImageApi } from '../../utils'
 import pokemonCardStyle from './PokemonCard.module.css'
 

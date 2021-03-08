@@ -12,7 +12,6 @@ const composeEnhancers = composeWithDevTools({
 })
 
 // Store
-// Almacenamiento de nuestro estado
 const store = createStore(
   rootReducer,
   composeEnhancers(

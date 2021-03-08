@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { connect } from 'react-redux';
-import { Modal, Button, Row, Col, Container } from 'react-bootstrap';
-import { selectedPokemon, unselectedPokemons, keepSelectedPokemons } from '../../redux/actions/pokemonsActions'
-import { SyncLoader } from 'react-spinners'
+import { unselectedPokemons, keepSelectedPokemons } from '../../redux/actions/pokemonsActions'
 import PokemonModalVs from './PokemonModalVs';
 import PokemonModalAlone from './PokemonModalAlone';
-import { render } from '@testing-library/react';
 
 function PokemonsModal({ showSelected, unselectedPokemons, selectedPokemons, keepSelectedPokemons }) {
   const handleClose = () => unselectedPokemons();

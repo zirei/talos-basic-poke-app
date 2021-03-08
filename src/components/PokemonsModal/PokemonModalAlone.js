@@ -1,7 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux';
 import { Modal, Button, Row, Col, Image } from 'react-bootstrap';
-import { SyncLoader } from 'react-spinners'
 import { pokemonImageApi, getId } from '../../utils'
 import PokeDescriptionStyle from './PokemonStyles.module.css'
 import ChartComponent from '../ChartComponent'
@@ -39,7 +37,7 @@ function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons
                       />
                     </Col>
                     <Col xs={8} sm={8} md={8} lg={8}>
-                      {pokemon.flavor_text_entries[0].flavor_text}
+                      {pokemon.flavor_text_entries[1].flavor_text}
                       <hr />
                       <Row>
                         <Col xs={4} sm={4} md={4} lg={4}>
@@ -104,6 +102,7 @@ function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons
                           : pokemon.color.name
                         }
                       />
+                      <hr />
                     </Col>
                   </Row>
                 </div>

@@ -1,24 +1,21 @@
 import React, { useEffect } from 'react'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import galeryStyles from './GaleryComponent.module.css'
-import { CardDeck, Row, Col, Container } from 'react-bootstrap';
+import { CardDeck } from 'react-bootstrap'
 import PokemonCard from '../PokemonCard'
 import { fetchPokemons, selectedPokemon, unselectedPokemons, countPokemon } from '../../redux/actions/pokemonsActions'
-import { getId, pokemonDataApi, pokemonImageApi } from '../../utils'
-import { SyncLoader } from 'react-spinners'
+import { getId, pokemonDataApi } from '../../utils'
+import { RingLoader } from 'react-spinners'
 import PokemonsModal from '../PokemonsModal'
 
-const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFetching, selectedPokemon, unselectedPokemons, url, countPokemon }) => {
+const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFetching, selectedPokemon, unselectedPokemons, url, countPokemon, spinerFetching }) => {
 
   const pokemonDescriptionUrl = (url) => {
     return `${pokemonDataApi}pokemon-species/${url.split('/')[6]}/`
   }
 
   useEffect(() => {
-    //debounce
-    setTimeout(() => {
-      fetchPokemons(scrollCounter)
-    }, 2000)
+    fetchPokemons(scrollCounter)
   }, [fetchPokemons, scrollCounter])
 
   window.onscroll = (() => {
@@ -28,21 +25,37 @@ const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFet
   });
 
   return (
-    <div xs="auto" sm="auto" md="auto" lg="auto" className={galeryStyles.CardDeckContainer}>
+    <div xs="auto" sm="auto" md="auto" lg="auto" className={galeryStyles.cardDeckContainer}>
       < CardDeck >
         {pokemonsList.map((pokemon) => {
-            return (
-              <div key={pokemon.name + getId(22)} onClick={() => {
-                selectedPokemon(pokemon, pokemon.url, pokemonDescriptionUrl(pokemon.url))
-              }}>
-                <PokemonCard
-                  name={pokemon.name}
-                  url={pokemon.url}
-                />
-              </div>
-            )
-          })}
+          return (
+            <div key={pokemon.name + getId(22)} onClick={() => {
+              selectedPokemon(pokemon, pokemon.url, pokemonDescriptionUrl(pokemon.url))
+            }}>
+              <PokemonCard
+                name={pokemon.name}
+                url={pokemon.url}
+              />
+            </div>
+          )
+        })}
       </CardDeck>
+      {spinerFetching
+        ?
+        <div class={galeryStyles.spinerSearch}>
+          <RingLoader
+            color={"orange"}
+          />
+        </div>
+        :
+        <div className={galeryStyles.searchText} >
+          <span onClick={() => {
+            countPokemon(scrollCounter)
+          }}>
+            Show more Pokemons
+        </span>
+        </div>
+      }
       <div>
         <PokemonsModal />
       </div>
@@ -53,6 +66,7 @@ const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFet
 const mapStateToProps = (state) => {
   return {
     isFetching: state.storePokemonSearch.isFetching,
+    spinerFetching: state.pokemons.isFetching,
     scrollCounter: state.pokemons.scrollCounter,
     showSelected: state.pokemons.showSelected,
     pokemonsList: state.pokemons.pokemonsList.filter(

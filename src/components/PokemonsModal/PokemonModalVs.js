@@ -1,7 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux';
-import { Modal, Row, Col, Image } from 'react-bootstrap';
-import { SyncLoader } from 'react-spinners'
+import { Modal, Row, Col, Image } from 'react-bootstrap'
 import { pokemonImageApi, getId } from '../../utils'
 import PokeDescriptionStyle from './PokemonStyles.module.css'
 import ChartComponentVS from '../ChartComponentVS'

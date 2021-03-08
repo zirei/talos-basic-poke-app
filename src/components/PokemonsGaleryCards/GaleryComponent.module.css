@@ -1,8 +1,22 @@
-.CardDeckContainer {
+:root{
+  --searchTextColor:  rgba(0, 0, 0, 0.5);
+  --spinnerColor:  rgba(238, 163, 0, 0.9);
+}
+
+.cardDeckContainer {
   display: flex;
   flex-flow: row wrap;
   margin-right: 5%;
   margin-left: 5%;
+}
+
+.searchText {
+  color: var(--searchTextColor);
+  padding-left: 40%;
+}
+
+.spinerSearch {
+  padding-left: 45%;
 }
 
 @media (max-width: 576px) {

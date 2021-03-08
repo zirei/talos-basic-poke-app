@@ -1,6 +1,5 @@
 import React, { useRef } from 'react'
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom'
 import { Navbar, Nav, Form, FormControl } from 'react-bootstrap';
 import ToastPokemon from '../ToastPokemon'
 import navigationStyle from './NavigationBar.module.css'
