@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import { Toast } from 'react-bootstrap'
 import toastStyle from './ToastPokemons.module.css'
 
-const ToastPokemon = ({pokemons,keepSelected}) => {
+const ToastPokemon = ({ pokemons, keepSelected }) => {
   return (
     <Toast show={keepSelected} className={toastStyle.bodyToast} >
       <Toast.Header closeButton={false}>
-        <strong className="mr-auto">Comparing pokemon</strong>
+        <strong className='mr-auto'>Comparing pokemon</strong>
       </Toast.Header>
       <Toast.Body>
         {keepSelected

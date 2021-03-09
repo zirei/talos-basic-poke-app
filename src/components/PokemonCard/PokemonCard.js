@@ -5,19 +5,16 @@ import { pokemonImageApi } from '../../utils'
 import pokemonCardStyle from './PokemonCard.module.css'
 
 
-const PokemonCard = ({
-  name,
-  url,
-}) => {
+const PokemonCard = ({ name, url }) => {
   const imagePokemonUrl = `${pokemonImageApi}${url.split('/')[6]}.png`
 
   return (
     <div>
       <Container>
         <Card className={pokemonCardStyle.cards}>
-          <Card.Img className={pokemonCardStyle.image} variant="top" src={imagePokemonUrl} fluid={'true'} />
+          <Card.Img className={pokemonCardStyle.image} variant='top' src={imagePokemonUrl} fluid={'true'} />
           <Card.Footer className={pokemonCardStyle.textFooter}>
-            <small className="text-muted">{name}</small>
+            <small className='text-muted'>{name}</small>
           </Card.Footer>
         </Card>
       </Container>

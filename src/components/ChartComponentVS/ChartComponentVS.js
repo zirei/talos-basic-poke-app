@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import Chart from 'chart.js';
 
-const ChartComponentVS = ({ firstPokemonName, firstPokemonStats, pokemonStatsNames,  secondPokemonName, secondPokemonStats,firstPokemonColor, firstPokemonBorderColor, secondPokemonColor, secondPokemonBorderColor }) => {
+const ChartComponentVS = ({ firstPokemonName, firstPokemonStats, pokemonStatsNames, secondPokemonName, secondPokemonStats, firstPokemonColor, firstPokemonBorderColor, secondPokemonColor, secondPokemonBorderColor }) => {
   const chartRef = useRef()
   if (firstPokemonColor === secondPokemonColor){
     secondPokemonColor = 'rgba(167, 246, 222, 1)'
@@ -79,6 +79,7 @@ const ChartComponentVS = ({ firstPokemonName, firstPokemonStats, pokemonStatsNam
       }
     });
   })
+
   return (
     <div>
       <canvas
@@ -88,7 +89,6 @@ const ChartComponentVS = ({ firstPokemonName, firstPokemonStats, pokemonStatsNam
       </canvas>
     </div>
   )
-
 
 }
 

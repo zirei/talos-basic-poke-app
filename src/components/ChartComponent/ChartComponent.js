@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
-import Chart from 'chart.js'; 
+import Chart from 'chart.js'
 
-const ChartComponent = ({pokemonName, pokemonStats,pokemonStatNames,pokemonColor, pokemonBorderColor}) => {
+const ChartComponent = ({ pokemonName, pokemonStats, pokemonStatNames, pokemonColor, pokemonBorderColor }) => {
   const chartRef = useRef()
 
 
@@ -47,6 +47,7 @@ const ChartComponent = ({pokemonName, pokemonStats,pokemonStatNames,pokemonColor
       }
     });
   })
+
   return (
     <div>
       <canvas
@@ -56,7 +57,6 @@ const ChartComponent = ({pokemonName, pokemonStats,pokemonStatNames,pokemonColor
       </canvas>
     </div>
   )
-
 
 }
 

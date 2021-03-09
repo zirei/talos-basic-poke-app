@@ -1,8 +1,9 @@
 import React from 'react'
 import { Modal, Button, Row, Col, Image } from 'react-bootstrap';
-import { pokemonImageApi, getId } from '../../utils'
+import { pokemonImageApi } from '../../utils'
 import pokeDescriptionStyle from './PokemonStyles.module.css'
 import ChartComponent from '../ChartComponent'
+import { nanoid } from 'nanoid'
 
 function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons, keepSelectedPokemons }) {
 
@@ -17,7 +18,7 @@ function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons
           <Modal.Title>
             {selectedPokemons.map((pokemon) => {
               return (
-                <div key={pokemon.name + getId(11)}>
+                <div key={nanoid()}>
                   {String(pokemon.name).toUpperCase()}
                   <Button className={pokeDescriptionStyle.compareButton} onClick={keepSelectedPokemons} variant='secondary'> Compare to...</Button>
                 </div>
@@ -29,11 +30,11 @@ function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons
           {selectedPokemons.map((pokemon) => {
             if (showSelected) {
               return (
-                <div className={pokeDescriptionStyle} key={pokemon.name + getId(12)}>
+                <div className={pokeDescriptionStyle} key={nanoid()}>
                   <Row xs={12} sm={12} >
                     <Col xs={4} sm={4} md={4} lg={4}>
                       <Image className={pokeDescriptionStyle.imgFluid}
-                        variant="top" src={imagePokemonUrl(pokemon)} fluid={'true'}
+                        variant='top' src={imagePokemonUrl(pokemon)} fluid={'true'}
                       />
                     </Col>
                     <Col xs={8} sm={8} md={8} lg={8}>
@@ -60,7 +61,7 @@ function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons
                           <span className={pokeDescriptionStyle.titles}> Abilities </span>
                           <ul>
                             {pokemon.abilities.map((pokeAbilitis) => (
-                              <li key={pokeAbilitis + getId(13)}>
+                              <li key={nanoid()}>
                                 {pokeAbilitis.ability.name}
                               </li>
                             ))}
@@ -70,7 +71,7 @@ function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons
                           <span className={pokeDescriptionStyle.titles}> Type </span>
                           <ul>
                             {pokemon.types.map((pokeTypes) => (
-                              <li key={pokeTypes + getId(14)}>
+                              <li key={nanoid()}>
                                 {pokeTypes.type.name}
                               </li>
                             ))}

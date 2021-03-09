@@ -29,7 +29,6 @@ function pokemons(state = initialState, action) {
         ...state,
         isFetching: true
       }
-
     case FETCH_POKEMONS_SUCCESS:
       return {
         ...state,
@@ -43,7 +42,6 @@ function pokemons(state = initialState, action) {
           ...action.payload.pokemons.results,
         ],
       }
-
     case FETCH_POKEMONS_ERROR:
       return {
         ...state,
@@ -98,7 +96,6 @@ function pokemons(state = initialState, action) {
         search_bar: action.payload.search_bar,
         pokemonsList: action.payload.pokemonsList
       }
-
     default:
       return state
   }

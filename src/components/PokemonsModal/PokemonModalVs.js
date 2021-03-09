@@ -4,7 +4,7 @@ import { pokemonImageApi, getId } from '../../utils'
 import PokeDescriptionStyle from './PokemonStyles.module.css'
 import ChartComponentVS from '../ChartComponentVS'
 
-function PokemonsModalVS({ showSelected, selectedPokemons, unselectedPokemons, keepSelectedPokemons }) {
+function PokemonsModalVS({ showSelected, selectedPokemons, unselectedPokemons }) {
   const imagePokemonUrl = (pokemon) => {
     return `${pokemonImageApi}${pokemon.url.split('/')[6]}.png`
   }
@@ -28,10 +28,10 @@ function PokemonsModalVS({ showSelected, selectedPokemons, unselectedPokemons, k
           <div>
             <Row>
               <Col xs={6} sm={6} md={6} lg={6}>
-                <Image className={PokeDescriptionStyle.imgFluid} variant="top" src={imagePokemonUrl(selectedPokemons[0])} fluid={'true'} />
+                <Image className={PokeDescriptionStyle.imgFluid} variant='top' src={imagePokemonUrl(selectedPokemons[0])} fluid={'true'} />
               </Col>
               <Col xs={6} sm={6} md={6} lg={6}>
-                <Image className={PokeDescriptionStyle.imgFluid} variant="top" src={imagePokemonUrl(selectedPokemons[1])} fluid={'true'} />
+                <Image className={PokeDescriptionStyle.imgFluid} variant='top' src={imagePokemonUrl(selectedPokemons[1])} fluid={'true'} />
               </Col>
             </Row>
             <hr />

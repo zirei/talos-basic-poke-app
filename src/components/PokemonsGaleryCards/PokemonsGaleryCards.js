@@ -4,9 +4,11 @@ import galeryStyles from './GaleryComponent.module.css'
 import { CardDeck } from 'react-bootstrap'
 import PokemonCard from '../PokemonCard'
 import { fetchPokemons, selectedPokemon, unselectedPokemons, countPokemon } from '../../redux/actions/pokemonsActions'
-import { getId, pokemonDataApi } from '../../utils'
+import { pokemonDataApi } from '../../utils'
 import { RingLoader } from 'react-spinners'
 import PokemonsModal from '../PokemonsModal'
+import { nanoid } from 'nanoid'
+
 
 const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, selectedPokemon, countPokemon, spinerFetching }) => {
 
@@ -24,14 +26,16 @@ const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, selec
     }
   });
 
+  const showSelectedPokemonsView = (pokemon) => {
+    return selectedPokemon(pokemon, pokemon.url, pokemonDescriptionUrl(pokemon.url))
+  }
+
   return (
     <div xs='auto' sm='auto' md='auto' lg='auto' className={galeryStyles.cardDeckContainer}>
       < CardDeck >
           {pokemonsList.map((pokemon) => {
             return (
-              <div key={pokemon.name + getId(22)} onClick={() => {
-                selectedPokemon(pokemon, pokemon.url, pokemonDescriptionUrl(pokemon.url))
-              }}>
+              <div key={pokemon.name + nanoid()} onClick={ () => showSelectedPokemonsView(pokemon)}>
                 <PokemonCard
                   name={pokemon.name}
                   url={pokemon.url}

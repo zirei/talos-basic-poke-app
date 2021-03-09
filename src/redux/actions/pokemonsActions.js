@@ -1,4 +1,4 @@
-import { pokemonDataApi } from "../../utils"
+import { pokemonDataApi } from '../../utils'
 
 export const FETCH_POKEMONS_REQUEST = 'FETCH_POKEMONS_REQUEST'
 export const FETCH_POKEMONS_SUCCESS = 'FETCH_POKEMONS_SUCCESS'
@@ -10,21 +10,18 @@ export const KEEP_SELECTED_POKEMONS = 'KEEP_SELECTED_POKEMONS'
 export const COUNT_POKEMON = 'COUNT_POKEMON'
 export const STORE_POKEMON_SEARCH = 'STORE_POKEMON_SEARCH'
 
-
-export const fetchPokemons = (counter) => (dispatch) => {
-  const url = `${pokemonDataApi}pokemon?offset=${counter}&limit=20`
+export const fetchPokemons = (pokemonCounter) => (dispatch) => {
+  const url = `${pokemonDataApi}pokemon?offset=${pokemonCounter}&limit=20`
   dispatch({ type: FETCH_POKEMONS_REQUEST })
   fetch(url)
-    .then(res => res.json())
+    .then(response => response.json())
     .then(queryData => {
-      setTimeout(() => {
         dispatch({
           type: FETCH_POKEMONS_SUCCESS,
           payload: {
             pokemons: queryData
           }
         })
-      }, 500)
     })
     .catch(error => {
       dispatch({

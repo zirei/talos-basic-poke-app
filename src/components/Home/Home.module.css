@@ -1,21 +1,21 @@
 :root {
-    --orange: rgba(248, 153, 1, 1);
-    --white: rgba(255, 255, 255, 1);
+  --orange: rgba(248, 153, 1, 1);
+  --white: rgba(255, 255, 255, 1);
 }
 
 .text {
-   text-align: center; 
-   vertical-align: middle;
-   padding: 2rem 10rem;
+  text-align: center;
+  vertical-align: middle;
+  padding: 2rem 10rem;
 }
 
 .button {
-    background-color: var(--orange) ;
-    color: var(--white);
+  background-color: var(--orange);
+  color: var(--white);
 }
 
-@media (max-width: 576px) { 
-    .text{
-        padding: 10% 5%;
-    }
+@media (max-width: 576px) {
+  .text {
+    padding: 10% 5%;
+  }
 }
