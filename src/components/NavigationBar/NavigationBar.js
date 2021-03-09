@@ -3,15 +3,16 @@ import { connect } from 'react-redux';
 import { Navbar, Nav, Form, FormControl } from 'react-bootstrap';
 import ToastPokemon from '../ToastPokemon'
 import navigationStyle from './NavigationBar.module.css'
-import { storePokemonSearching } from '../../redux/actions/navigationBarActions'
+import { storePokemonSearching } from '../../redux/actions/pokemonsActions'
 
-const NavigationBar = ({ storePokemonSearching, isFetchingSearch }) => {
+const NavigationBar = ({ storePokemonSearching, rootPokemonList }) => {
   const input = useRef()
 
   const getInput = (inputEvent) => {
     inputEvent.preventDefault()
     const search = inputEvent.target.value
-    storePokemonSearching(search)
+    storePokemonSearching(search, rootPokemonList)
+
   }
 
   return (
@@ -39,13 +40,14 @@ const NavigationBar = ({ storePokemonSearching, isFetchingSearch }) => {
 
 const mapStateToProps = (state) => {
   return {
+    rootPokemonList: state.pokemons.rootPokemonList,
   }
 }
 
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    storePokemonSearching: (searchPokemon) => dispatch(storePokemonSearching(searchPokemon)),
+    storePokemonSearching: (searchPokemon, rootPokemonList) => dispatch(storePokemonSearching(searchPokemon, rootPokemonList)),
   }
 }
 

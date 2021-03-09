@@ -8,6 +8,8 @@ export const UNSELECTED_POKEMON = 'UNSELECTED_POKEMON'
 export const SELECTED_POKEMONS_ERROR = 'SELECTED_POKEMONS_ERROR'
 export const KEEP_SELECTED_POKEMONS = 'KEEP_SELECTED_POKEMONS'
 export const COUNT_POKEMON = 'COUNT_POKEMON'
+export const STORE_POKEMON_SEARCH = 'STORE_POKEMON_SEARCH'
+
 
 export const fetchPokemons = (counter) => (dispatch) => {
   const url = `${pokemonDataApi}pokemon?offset=${counter}&limit=20`
@@ -89,6 +91,20 @@ export const countPokemon = (scrollCounter) => (dispatch) => {
     type: COUNT_POKEMON,
     payload: {
       scrollCounter: scrollCounter + 20
+    }
+  })
+}
+
+export const storePokemonSearching = (search_bar_text, pokemonsListInput) => (dispatch) => {
+  dispatch({
+    type: STORE_POKEMON_SEARCH,
+    payload: {
+      search_bar: search_bar_text,
+      pokemonsList: pokemonsListInput.filter(
+        (pokemon) => pokemon.name.toLowerCase().includes(
+          search_bar_text.toLowerCase()
+        )
+      )
     }
   })
 }

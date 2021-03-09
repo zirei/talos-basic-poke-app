@@ -7,6 +7,7 @@ import {
   SELECTED_POKEMONS_ERROR,
   KEEP_SELECTED_POKEMONS,
   COUNT_POKEMON,
+  STORE_POKEMON_SEARCH,
 } from '../actions/pokemonsActions'
 
 const initialState = {
@@ -16,7 +17,9 @@ const initialState = {
   selectedPokemons: [],
   showSelected: false,
   keepSelected: false,
-  scrollCounter: 0
+  scrollCounter: 0,
+  search_bar: '',
+  rootPokemonList: [],
 }
 
 function pokemons(state = initialState, action) {
@@ -33,7 +36,11 @@ function pokemons(state = initialState, action) {
         isFetching: false,
         pokemonsList: [
           ...state.pokemonsList,
-          ...action.payload.pokemons.results
+          ...action.payload.pokemons.results,
+        ],
+        rootPokemonList: [
+          ...state.rootPokemonList,
+          ...action.payload.pokemons.results,
         ],
       }
 
@@ -85,6 +92,12 @@ function pokemons(state = initialState, action) {
         isFetching: false,
         scrollCounter: action.payload.scrollCounter
       }
+    case STORE_POKEMON_SEARCH:
+      return {
+        ...state,
+        search_bar: action.payload.search_bar,
+        pokemonsList: action.payload.pokemonsList
+      }
 
     default:
       return state
@@ -92,3 +105,4 @@ function pokemons(state = initialState, action) {
 }
 
 export default pokemons
+

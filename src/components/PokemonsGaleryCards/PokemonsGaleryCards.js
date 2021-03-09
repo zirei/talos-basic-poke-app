@@ -8,7 +8,7 @@ import { getId, pokemonDataApi } from '../../utils'
 import { RingLoader } from 'react-spinners'
 import PokemonsModal from '../PokemonsModal'
 
-const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFetching, selectedPokemon, unselectedPokemons, url, countPokemon, spinerFetching }) => {
+const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, selectedPokemon, countPokemon, spinerFetching }) => {
 
   const pokemonDescriptionUrl = (url) => {
     return `${pokemonDataApi}pokemon-species/${url.split('/')[6]}/`
@@ -27,18 +27,19 @@ const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFet
   return (
     <div xs="auto" sm="auto" md="auto" lg="auto" className={galeryStyles.cardDeckContainer}>
       < CardDeck >
-        {pokemonsList.map((pokemon) => {
-          return (
-            <div key={pokemon.name + getId(22)} onClick={() => {
-              selectedPokemon(pokemon, pokemon.url, pokemonDescriptionUrl(pokemon.url))
-            }}>
-              <PokemonCard
-                name={pokemon.name}
-                url={pokemon.url}
-              />
-            </div>
-          )
-        })}
+          {pokemonsList.map((pokemon) => {
+            return (
+              <div key={pokemon.name + getId(22)} onClick={() => {
+                selectedPokemon(pokemon, pokemon.url, pokemonDescriptionUrl(pokemon.url))
+              }}>
+                <PokemonCard
+                  name={pokemon.name}
+                  url={pokemon.url}
+                />
+              </div>
+            )
+          })
+        }
       </CardDeck>
       {spinerFetching
         ?
@@ -65,15 +66,11 @@ const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, isFet
 
 const mapStateToProps = (state) => {
   return {
-    isFetching: state.storePokemonSearch.isFetching,
     spinerFetching: state.pokemons.isFetching,
     scrollCounter: state.pokemons.scrollCounter,
     showSelected: state.pokemons.showSelected,
-    pokemonsList: state.pokemons.pokemonsList.filter(
-      (pokemon) => pokemon.name.toLowerCase().includes(
-        state.storePokemonSearch.search_bar.toLowerCase()
-      )
-    ),
+    pokemonsList: state.pokemons.pokemonsList,
+    showSearchPokemons: state.pokemons.showSearchPokemons,
   }
 }
 

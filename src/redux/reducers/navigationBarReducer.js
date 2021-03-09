@@ -13,9 +13,6 @@ function storePokemonSearch(state = initialState, action) {
         ...state,
         search_bar: action.payload.search_bar,
         isFetching: true
-        // search_bar === ''
-        // ? isFetching: false
-        // : isFetching: true
 
       }
 
