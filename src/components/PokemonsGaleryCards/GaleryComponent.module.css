@@ -1,7 +1,9 @@
 :root{
   --searchTextColor:  rgba(0, 0, 0, 0.5);
   --spinnerColor:  rgba(238, 163, 0, 0.9);
+  --gray: rgba(204, 204, 204, 0.9);
 }
+
 
 .cardDeckContainer {
   display: flex;
@@ -14,7 +16,7 @@
   color: var(--searchTextColor);
   margin: 1rem 33%;
   padding: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--gray);
   text-align: center;
 }
 

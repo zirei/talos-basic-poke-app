@@ -70,33 +70,33 @@ function PokemonsModalVS({ showSelected, selectedPokemons, unselectedPokemons, k
             <Col>
               <h1 className={PokeDescriptionStyle.statesStyle}> Stats </h1>
               <ChartComponentVS
-                name={selectedPokemons[0].name}
-                name2={selectedPokemons[1].name}
-                stats={selectedPokemons[0].stats.map((state) => {
+                firstPokemonName={selectedPokemons[0].name}
+                secondPokemonName={selectedPokemons[1].name}
+                firstPokemonStats={selectedPokemons[0].stats.map((state) => {
                   return state.base_stat
                 })}
-                stats2={selectedPokemons[1].stats.map((state) => {
+                secondPokemonStats={selectedPokemons[1].stats.map((state) => {
                   return state.base_stat
                 })}
-                statNames={selectedPokemons[0].stats.map((state) => {
+                pokemonStatsNames={selectedPokemons[0].stats.map((state) => {
                   return state.stat.name
                 })}
-                color={
+                firstPokemonColor={
                   selectedPokemons[0].color.name === 'white'
                     ? 'rgba(167, 246, 222, 0.5)'
                     : selectedPokemons[0].color.name
                 }
-                borderColor={
+                firstPokemonBorderColor={
                   selectedPokemons[0].color.name === 'white'
                     ? 'rgba(167, 246, 222, 1)'
                     : selectedPokemons[0].color.name
                 }
-                color2={
+                secondPokemonColor={
                   selectedPokemons[1].color.name === 'white'
                     ? 'rgba(167, 246, 222, 1)'
                     : selectedPokemons[1].color.name
                 }
-                borderColor2={
+                secondPokemonBorderColor={
                   selectedPokemons[1].color.name === 'white'
                     ? 'rgba(167, 246, 222, 1)'
                     : selectedPokemons[1].color.name

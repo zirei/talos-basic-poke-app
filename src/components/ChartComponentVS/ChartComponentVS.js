@@ -1,14 +1,14 @@
 import React, { useEffect, useRef } from 'react'
 import Chart from 'chart.js';
 
-const ChartComponentVS = ({ name, stats, statNames, name2, stats2,color, borderColor, color2, borderColor2 }) => {
+const ChartComponentVS = ({ firstPokemonName, firstPokemonStats, pokemonStatsNames,  secondPokemonName, secondPokemonStats,firstPokemonColor, firstPokemonBorderColor, secondPokemonColor, secondPokemonBorderColor }) => {
   const chartRef = useRef()
-  if (color === color2){
-    color2 = 'rgba(167, 246, 222, 1)'
-    borderColor2 = 'rgba(167, 246, 222, 1)'
+  if (firstPokemonColor === secondPokemonColor){
+    secondPokemonColor = 'rgba(167, 246, 222, 1)'
+    secondPokemonBorderColor = 'rgba(167, 246, 222, 1)'
   }
-  if (name === name2){
-    name2 += 2
+  if (firstPokemonName ===  secondPokemonName){
+     secondPokemonName += 2
   }
 
   useEffect(() => {
@@ -17,51 +17,51 @@ const ChartComponentVS = ({ name, stats, statNames, name2, stats2,color, borderC
     new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: statNames,
+        labels: pokemonStatsNames,
         datasets: [
           {
 
-            label: name,
-            data: stats,
+            label: firstPokemonName,
+            data: firstPokemonStats,
             backgroundColor: [
-              color,
-              color,
-              color,
-              color,
-              color,
-              color,
+              firstPokemonColor,
+              firstPokemonColor,
+              firstPokemonColor,
+              firstPokemonColor,
+              firstPokemonColor,
+              firstPokemonColor,
 
             ],
-            borderColor: [
-              borderColor,        
-              borderColor,        
-              borderColor,        
-              borderColor,        
-              borderColor,        
-              borderColor,        
+            firstPokemonBorderColor: [
+              firstPokemonBorderColor,        
+              firstPokemonBorderColor,        
+              firstPokemonBorderColor,        
+              firstPokemonBorderColor,        
+              firstPokemonBorderColor,        
+              firstPokemonBorderColor,        
 
             ],
             borderWidth: 1
           },
           {
-            label: name2,
-            data: stats2,
+            label:  secondPokemonName,
+            data: secondPokemonStats,
             backgroundColor: [
-              color2,
-              color2,
-              color2,
-              color2,
-              color2,
-              color2,
+              secondPokemonColor,
+              secondPokemonColor,
+              secondPokemonColor,
+              secondPokemonColor,
+              secondPokemonColor,
+              secondPokemonColor,
 
             ],
-            borderColor: [
-              borderColor2,
-              borderColor2,
-              borderColor2,
-              borderColor2,
-              borderColor2,
-              borderColor2,
+            firstPokemonBorderColor: [
+              secondPokemonBorderColor,
+              secondPokemonBorderColor,
+              secondPokemonBorderColor,
+              secondPokemonBorderColor,
+              secondPokemonBorderColor,
+              secondPokemonBorderColor,
 
             ],
             borderWidth: 1

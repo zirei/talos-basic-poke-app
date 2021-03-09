@@ -6,9 +6,9 @@ import navigationStyle from './NavigationBar.module.css'
 import { storePokemonSearching } from '../../redux/actions/pokemonsActions'
 
 const NavigationBar = ({ storePokemonSearching, rootPokemonList }) => {
-  const input = useRef()
+  const pokemonSearchInput = useRef()
 
-  const getInput = (inputEvent) => {
+  const getInputPokemonSearch = (inputEvent) => {
     inputEvent.preventDefault()
     const search = inputEvent.target.value
     storePokemonSearching(search, rootPokemonList)
@@ -17,18 +17,18 @@ const NavigationBar = ({ storePokemonSearching, rootPokemonList }) => {
 
   return (
     < nav className={navigationStyle.style} >
-      <Navbar bg="light" variant="light">
+      <Navbar bg='light' variant='light'>
         <Navbar.Brand href="/">PokeApp</Navbar.Brand>
-        <Nav className="mr-auto">
-          <Nav.Link href="/pokemons">Pokemons</Nav.Link>
+        <Nav className='mr-auto'>
+          <Nav.Link href='/pokemons'>Pokemons</Nav.Link>
         </Nav>
         <Form inline>
           <FormControl
-            type="text"
-            placeholder="Search"
-            className="mr-sm-2"
-            onChange={getInput}
-            ref={input}
+            type='text'
+            placeholder='Search'
+            className='mr-sm-2'
+            onChange={getInputPokemonSearch}
+            ref={pokemonSearchInput}
           />
         </Form>
       </Navbar>

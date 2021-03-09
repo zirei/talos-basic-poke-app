@@ -1,7 +1,7 @@
 import React from 'react'
 import { Modal, Button, Row, Col, Image } from 'react-bootstrap';
 import { pokemonImageApi, getId } from '../../utils'
-import PokeDescriptionStyle from './PokemonStyles.module.css'
+import pokeDescriptionStyle from './PokemonStyles.module.css'
 import ChartComponent from '../ChartComponent'
 
 function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons, keepSelectedPokemons }) {
@@ -19,7 +19,7 @@ function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons
               return (
                 <div key={pokemon.name + getId(11)}>
                   {String(pokemon.name).toUpperCase()}
-                  <Button className={PokeDescriptionStyle.compareButton} onClick={keepSelectedPokemons} variant='secondary'> Compare to...</Button>
+                  <Button className={pokeDescriptionStyle.compareButton} onClick={keepSelectedPokemons} variant='secondary'> Compare to...</Button>
                 </div>
               )
             })}
@@ -29,10 +29,10 @@ function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons
           {selectedPokemons.map((pokemon) => {
             if (showSelected) {
               return (
-                <div className={PokeDescriptionStyle} key={pokemon.name + getId(12)}>
+                <div className={pokeDescriptionStyle} key={pokemon.name + getId(12)}>
                   <Row xs={12} sm={12} >
                     <Col xs={4} sm={4} md={4} lg={4}>
-                      <Image className={PokeDescriptionStyle.imgFluid}
+                      <Image className={pokeDescriptionStyle.imgFluid}
                         variant="top" src={imagePokemonUrl(pokemon)} fluid={'true'}
                       />
                     </Col>
@@ -41,23 +41,23 @@ function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons
                       <hr />
                       <Row>
                         <Col xs={4} sm={4} md={4} lg={4}>
-                          <span className={PokeDescriptionStyle.titles}> Height </span>
-                          <span className={PokeDescriptionStyle.textMargin}> {selectedPokemons[0].height}m </span>
+                          <span className={pokeDescriptionStyle.titles}> Height </span>
+                          <span className={pokeDescriptionStyle.textMargin}> {selectedPokemons[0].height}m </span>
                         </Col>
                         <Col xs={4} sm={4} md={4} lg={4}>
-                          <span className={PokeDescriptionStyle.titles}> Weight </span>
-                          <span className={PokeDescriptionStyle.textMargin}> {selectedPokemons[0].weight}kg </span>
+                          <span className={pokeDescriptionStyle.titles}> Weight </span>
+                          <span className={pokeDescriptionStyle.textMargin}> {selectedPokemons[0].weight}kg </span>
 
                         </Col>
                         <Col xs={4} sm={4} md={4} lg={4}>
-                          <span className={PokeDescriptionStyle.titles}> Gender </span>
-                          <span className={PokeDescriptionStyle.textMargin}> {selectedPokemons[0].gender_rate} </span>
+                          <span className={pokeDescriptionStyle.titles}> Gender </span>
+                          <span className={pokeDescriptionStyle.textMargin}> {selectedPokemons[0].gender_rate} </span>
 
                         </Col>
                       </Row>
                       <Row>
-                        <Col className={PokeDescriptionStyle.margin} xs={6} sm={6} md={6} lg={6}>
-                          <span className={PokeDescriptionStyle.titles}> Abilities </span>
+                        <Col className={pokeDescriptionStyle.margin} xs={6} sm={6} md={6} lg={6}>
+                          <span className={pokeDescriptionStyle.titles}> Abilities </span>
                           <ul>
                             {pokemon.abilities.map((pokeAbilitis) => (
                               <li key={pokeAbilitis + getId(13)}>
@@ -66,8 +66,8 @@ function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons
                             ))}
                           </ul>
                         </Col>
-                        <Col className={PokeDescriptionStyle.margin} xs={6} sm={6} md={6} lg={6}>
-                          <span className={PokeDescriptionStyle.titles}> Type </span>
+                        <Col className={pokeDescriptionStyle.margin} xs={6} sm={6} md={6} lg={6}>
+                          <span className={pokeDescriptionStyle.titles}> Type </span>
                           <ul>
                             {pokemon.types.map((pokeTypes) => (
                               <li key={pokeTypes + getId(14)}>
@@ -82,21 +82,21 @@ function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons
                   <hr />
                   <Row>
                     <Col>
-                      <h1 className={PokeDescriptionStyle.statesStyle}> Stats </h1>
+                      <h1 className={pokeDescriptionStyle.statesStyle}> Stats </h1>
                       <ChartComponent
-                        name={pokemon.name}
-                        stats={pokemon.stats.map((state) => {
+                        pokemonName={pokemon.name}
+                        pokemonStats={pokemon.stats.map((state) => {
                           return state.base_stat
                         })}
-                        statNames={pokemon.stats.map((state) => {
+                        pokemonStatNames={pokemon.stats.map((state) => {
                           return state.stat.name
                         })}
-                        color={
+                        pokemonColor={
                           pokemon.color.name === 'white'
                           ? 'rgba(167, 246, 222, 0.5)'
                           : pokemon.color.name
                         }
-                        borderColor={
+                        pokemonBorderColor={
                           pokemon.color.name === 'white'
                           ? 'rgba(167, 246, 222, 1)'
                           : pokemon.color.name

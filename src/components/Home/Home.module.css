@@ -1,3 +1,8 @@
+:root {
+    --orange: rgba(248, 153, 1, 1);
+    --white: rgba(255, 255, 255, 1);
+}
+
 .text {
    text-align: center; 
    vertical-align: middle;
@@ -5,9 +10,7 @@
 }
 
 .button {
-    --red: rgb(248, 1, 1);
-    --white: rgba(255, 255, 255, 1);
-    background-color: var(--red) ;
+    background-color: var(--orange) ;
     color: var(--white);
 }
 

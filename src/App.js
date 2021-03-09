@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import store from './redux/store'
 
 import PokemonsGaleryCards from './components/PokemonsGaleryCards'
-import NavigationBar from "./components/NavigationBar"
+import NavigationBar from './components/NavigationBar'
 import Home from './components/Home'
 
 const App = () => {

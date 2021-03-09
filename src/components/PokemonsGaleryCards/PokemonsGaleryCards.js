@@ -25,7 +25,7 @@ const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, selec
   });
 
   return (
-    <div xs="auto" sm="auto" md="auto" lg="auto" className={galeryStyles.cardDeckContainer}>
+    <div xs='auto' sm='auto' md='auto' lg='auto' className={galeryStyles.cardDeckContainer}>
       < CardDeck >
           {pokemonsList.map((pokemon) => {
             return (
@@ -43,14 +43,14 @@ const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, selec
       </CardDeck>
       {spinerFetching
         ?
-        <div class={galeryStyles.spinerSearch}>
+        <div className={galeryStyles.spinerSearch}>
           <RingLoader
-            color={"orange"}
+            color={'orange'}
           />
         </div>
         :
         <div className={galeryStyles.searchText} >
-          <span type="button" onClick={() => {
+          <span type='button' onClick={() => {
             countPokemon(scrollCounter)
           }}>
             Click here or Scroll to see more Pokemons

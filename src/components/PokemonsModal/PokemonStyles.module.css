@@ -1,9 +1,14 @@
+:root {
+  --backGgroundColor:  rgba(110, 117, 124, 1); 
+  --textColor: rgba(241, 242, 242, 1);
+}
+
 .imgFluid {
   width: 10rem;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
 }
+
 .margin {
   margin-top: 0.5rem;
 }
@@ -11,7 +16,7 @@
 .titles {
   font-weight: 700;
   text-align: center;
-  display: table;
+  vertical-align: middle;
 }
 
 .statesStyle {
@@ -26,14 +31,11 @@
 
 .textMarginVs {
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  display: table;
+  vertical-align: middle;
+  margin-left: 33%;
 }
 
-.compareButton{
-  --backGgroundColor:  rgba(110, 117, 124, 1); 
-  --textColor: rgba(241, 242, 242, 1);
+.compareButton {
   margin-left: 1rem;
   color: var(--textColor);
   background-color: var(--backGgroundColor);

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import Chart from 'chart.js'; 
 
-const ChartComponent = ({name, stats,statNames,color, borderColor}) => {
+const ChartComponent = ({pokemonName, pokemonStats,pokemonStatNames,pokemonColor, pokemonBorderColor}) => {
   const chartRef = useRef()
 
 
@@ -11,26 +11,26 @@ const ChartComponent = ({name, stats,statNames,color, borderColor}) => {
     new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: statNames,
+        labels: pokemonStatNames,
         datasets: [{
-          label: name,
-          data: stats,
+          label: pokemonName,
+          data: pokemonStats,
           backgroundColor: [
-            color,
-            color,
-            color,
-            color,
-            color,
-            color,
+            pokemonColor,
+            pokemonColor,
+            pokemonColor,
+            pokemonColor,
+            pokemonColor,
+            pokemonColor,
             
           ],
           borderColor: [
-            borderColor,
-            borderColor,
-            borderColor,
-            borderColor,
-            borderColor,
-            borderColor,
+            pokemonBorderColor,
+            pokemonBorderColor,
+            pokemonBorderColor,
+            pokemonBorderColor,
+            pokemonBorderColor,
+            pokemonBorderColor,
 
           ],
           borderWidth: 1
