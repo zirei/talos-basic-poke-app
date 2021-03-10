@@ -42,7 +42,7 @@ function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons
                       <hr />
                       <Row>
                         <Col xs={4} sm={4} md={4} lg={4}>
-                          <span className={pokeDescriptionStyle.titles}> Height </span>
+                          <span className={pokeDescriptionStyle.titles}> Height </span><br />
                           <span className={pokeDescriptionStyle.textMargin}> {selectedPokemons[0].height}m </span>
                         </Col>
                         <Col xs={4} sm={4} md={4} lg={4}>
