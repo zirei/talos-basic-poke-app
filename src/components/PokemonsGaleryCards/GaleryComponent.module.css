@@ -12,8 +12,8 @@
 
 .searchText {
   color: var(--searchTextColor);
-  margin: 1rem auto;
-  padding: 1rem 2rem;
+  margin: 1rem 25%;
+  padding: 0.25rem;
   border: 1px solid var(--gray);
   text-align: center;
 }
