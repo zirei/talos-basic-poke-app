@@ -1,18 +1,21 @@
-.cards {
+.cards, .container-fluid, .container-lg, .container-md, .container-xl { 
   display: inline-flex;
-  width: 10rem;
-  margin: 5%; 
+  width: 9rem;
+  margin: 1.5rem; 
 }
 
 .image {
   display: block;
   margin: auto;
-  width: auto;
-  padding: 1rem;
+  padding: 0rem;
 }
 
 .textFooter {
   text-align: center;
   text-transform: uppercase;
   padding: 0 1.25rem;
+}
+
+.container, .container-sm {
+  margin: auto;
 }

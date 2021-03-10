@@ -9,8 +9,8 @@ const PokemonCard = ({ name, url }) => {
   const imagePokemonUrl = `${pokemonImageApi}${url.split('/')[6]}.png`
 
   return (
-    <div>
-      <Container>
+    <div >
+      <Container className={pokemonCardStyle.container} >
         <Card className={pokemonCardStyle.cards}>
           <Card.Img className={pokemonCardStyle.image} variant='top' src={imagePokemonUrl} fluid={'true'} />
           <Card.Footer className={pokemonCardStyle.textFooter}>

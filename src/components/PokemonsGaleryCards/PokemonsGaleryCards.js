@@ -9,7 +9,6 @@ import { RingLoader } from 'react-spinners'
 import PokemonsModal from '../PokemonsModal'
 import { nanoid } from 'nanoid'
 
-
 const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, selectedPokemon, countPokemon, spinerFetching }) => {
 
   const pokemonDescriptionUrl = (url) => {
@@ -32,17 +31,17 @@ const PokemonsGaleryCards = ({ fetchPokemons, scrollCounter, pokemonsList, selec
 
   return (
     <div xs='auto' sm='auto' md='auto' lg='auto' className={galeryStyles.cardDeckContainer}>
-      < CardDeck >
-          {pokemonsList.map((pokemon) => {
-            return (
-              <div key={pokemon.name + nanoid()} onClick={ () => showSelectedPokemonsView(pokemon)}>
-                <PokemonCard
-                  name={pokemon.name}
-                  url={pokemon.url}
-                />
-              </div>
-            )
-          })
+      < CardDeck className='card-deck' >
+        {pokemonsList.map((pokemon) => {
+          return (
+            <div key={pokemon.name + nanoid()} onClick={() => showSelectedPokemonsView(pokemon)}>
+              <PokemonCard
+                name={pokemon.name}
+                url={pokemon.url}
+              />
+            </div>
+          )
+        })
         }
       </CardDeck>
       {spinerFetching

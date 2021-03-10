@@ -7,23 +7,20 @@
 .cardDeckContainer {
   display: flex;
   flex-flow: row wrap;
-  margin: 0% 5%;
+  margin: 0% 10%;
 }
 
 .searchText {
   color: var(--searchTextColor);
-  margin: 1rem 33%;
-  padding: 1rem;
+  margin: 1rem auto;
+  padding: 1rem 2rem;
   border: 1px solid var(--gray);
   text-align: center;
 }
 
 .spinerSearch {
-  padding-left: 45%;
+  text-align: center;
+  padding: 1rem auto;
+  margin: 1rem auto;
 }
 
-@media (max-width: 576px) {
-  .cardDeck {
-    margin: 1% 1%;
-  }
-}
