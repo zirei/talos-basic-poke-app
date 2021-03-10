@@ -37,8 +37,8 @@ function PokemonsModalVS({ showSelected, selectedPokemons, unselectedPokemons })
             <hr />
             <Row>
               <Col xs={5} sm={5} md={5} lg={5}>
-                <span className={PokeDescriptionStyle.textMarginVs}> {selectedPokemons[0].height}m </span><br />
-                <span className={PokeDescriptionStyle.textMarginVs}> {selectedPokemons[0].weight}kg </span><br />
+                <span className={PokeDescriptionStyle.textMarginVs}> {selectedPokemons[0].height/10}m </span><br />
+                <span className={PokeDescriptionStyle.textMarginVs}> {selectedPokemons[0].weight/10}kg </span><br />
                 <span className={PokeDescriptionStyle.textMarginVs}> {selectedPokemons[0].gender_rate} </span><br />
                 {selectedPokemons[0].abilities.map((pokeAbilitis) => (
                   <span className={PokeDescriptionStyle.textMarginVs} key={pokeAbilitis + getId(20)}>
@@ -55,8 +55,8 @@ function PokemonsModalVS({ showSelected, selectedPokemons, unselectedPokemons })
 
               </Col>
               <Col xs={5} sm={6} md={5} lg={5}>
-                <span className={PokeDescriptionStyle.textMarginVs}> {selectedPokemons[1].height}m </span><br />
-                <span className={PokeDescriptionStyle.textMarginVs}> {selectedPokemons[1].weight}kg </span><br />
+                <span className={PokeDescriptionStyle.textMarginVs}> {selectedPokemons[1].height/10}m </span><br />
+                <span className={PokeDescriptionStyle.textMarginVs}> {selectedPokemons[1].weight/10}kg </span><br />
                 <span className={PokeDescriptionStyle.textMarginVs}> {selectedPokemons[1].gender_rate} </span><br />
                 {selectedPokemons[1].abilities.map((pokeAbilitis) => (
                   <span className={PokeDescriptionStyle.textMarginVs} key={pokeAbilitis + getId(21)}>
