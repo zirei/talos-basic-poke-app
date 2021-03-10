@@ -38,7 +38,7 @@ function PokemonsModalAlone({ showSelected, selectedPokemons, unselectedPokemons
                       />
                     </Col>
                     <Col xs={8} sm={8} md={8} lg={8}>
-                      {pokemon.flavor_text_entries[1].flavor_text}
+                      {pokemon.flavor_text_entries[1].flavor_text.toLowerCase()}
                       <hr />
                       <Row>
                         <Col xs={4} sm={4} md={4} lg={4}>
