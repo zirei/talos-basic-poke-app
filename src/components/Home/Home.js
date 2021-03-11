@@ -6,11 +6,13 @@ import textStyles from './Home.module.css'
 const Home = () => {
   return (
     <div className={textStyles.text}>
-      <h1> WELCOME TO THE POKEMON ADVENTURE </h1>
+      <h1> WHAT IS A POKEMON? </h1>
       <p>
-      Once upon a time there was a young man named Ash, he decided to undertake an adventure 
-      in a wonderful world full of incredible creatures, today I bring you the collection that I manage to find,
-      get into this pokemon adventure!
+      Pokémon are creatures of all shapes and sizes that live either 
+      in the wild or alongside humans. Most Pokémon only speak to say their names.
+      Pokémon owners (called "Trainers") raise and care for them. During their adventures,
+      Pokémon grow and gain more experience, and sometimes even evolve to become stronger Pokémon.
+      Currently, there are more than 700 creatures that inhabit the Pokémon universe.
       </p>
       <Button
         className={textStyles.button}
@@ -18,7 +20,7 @@ const Home = () => {
         to='/pokemons'
         variant='secondary'
         >
-          SHOW ME
+          SHOW ME 
       </Button>
     </div>
   )
